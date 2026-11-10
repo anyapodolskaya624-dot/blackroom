@@ -25,8 +25,12 @@ img{max-width:100%;display:block}
 .glow.y{background:radial-gradient(closest-side,rgba(54,47,29,1) 0%,rgba(54,47,29,.75) 36%,rgba(54,47,29,.35) 57%,rgba(54,47,29,.05) 86%,rgba(54,47,29,0) 100%)}
 .glow.g{background:radial-gradient(closest-side,rgba(46,46,46,1) 0%,rgba(46,46,46,.75) 36%,rgba(46,46,46,.35) 57%,rgba(46,46,46,.05) 86%,rgba(46,46,46,0) 100%)}
 .glow.l{left:-310px}.glow.r{right:-310px}
-.side-logo{display:none}
-@keyframes drift{from{transform:translateY(-8px)}to{transform:translateY(8px)}}
+.cube{display:none;position:absolute;z-index:0;width:300px;height:auto;opacity:.1;pointer-events:none;animation:drift 14s ease-in-out infinite alternate}
+.cube.l{left:-90px}.cube.r{right:-90px;animation-delay:-7s}
+/* логотип у «Кому подходим»: ровно, без наклона, и край экрана не режет надпись */
+.cube.straight{left:max(0px, calc((100vw - 1180px) / 2 - 150px));animation-name:floaty}
+@keyframes drift{from{transform:translateY(-14px) rotate(-4deg)}to{transform:translateY(14px) rotate(4deg)}}
+@keyframes floaty{from{transform:translateY(-8px)}to{transform:translateY(8px)}}
 
 /* шапка */
 .topbar{position:relative;z-index:20}
@@ -239,7 +243,8 @@ footer{color:var(--muted);font-size:13px;text-align:center;padding:26px 0 10px}
   .page{padding-bottom:30px}
   .bar{display:none}
   .glow{width:900px;height:900px}.glow.l{left:-450px}.glow.r{right:-450px}
-  .side-logo{display:block;width:210px;height:auto;margin-top:44px;opacity:.24;animation:drift 14s ease-in-out infinite alternate}
+  .cube{display:block}
+  #fit{padding-bottom:150px}
 
   .topbar{position:sticky;top:0;background:rgba(21,21,21,.78);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid transparent;transition:border-color .2s,background .2s}
   .topbar.scrolled{border-bottom-color:#2e2e2e;background:rgba(21,21,21,.92)}
