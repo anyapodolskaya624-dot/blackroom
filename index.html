@@ -12,7 +12,7 @@
 <link rel="icon" type="image/png" href="img/favicon.png">
 <link rel="preload" href="fonts/unbounded-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/montserrat-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="style.css?v=9">
+<link rel="stylesheet" href="style.css?v=10">
 <script>document.documentElement.classList.add("js")</script>
 </head>
 <body>
@@ -47,6 +47,7 @@
   <!-- свечение и кубы по краям: расставляются по блокам скриптом -->
   <div class="glow y l" data-sec="top" data-pos="0.3"></div>
   <div class="glow g r" data-sec="top" data-pos="0.85"></div>
+  <div class="glow y l" data-sec="fit" data-pos="0.55"></div>
   <div class="glow y r" data-sec="services" data-pos="0.4"></div>
   <div class="glow g l" data-sec="how" data-pos="0.5"></div>
   <div class="glow y l" data-sec="where" data-pos="0.5"></div>
@@ -243,14 +244,19 @@
 
     <!-- фото -->
     <section id="photo">
-      <div class="head rv"><h2>Наш склад</h2><p class="sub">Нажмите на фото, чтобы посмотреть крупно</p></div>
-      <div class="gal">
-        <figure class="rv"><img src="img/priemka.jpg" alt="Приёмка партии" loading="lazy"><figcaption>Приёмка: больше 200 коробок постоянного клиента</figcaption></figure>
-        <figure class="rv"><img src="img/podgotovleno.jpg" alt="Подготовлено к отгрузке" loading="lazy"><figcaption>Подготовлено к отгрузке</figcaption></figure>
-        <figure class="rv"><img src="img/zagruzheno.jpg" alt="Загружено" loading="lazy"><figcaption>Загружено и едет на склад</figcaption></figure>
-        <figure class="rv"><img src="img/partiya.jpg" alt="Новая партия" loading="lazy"><figcaption>Новая партия на приёмке</figcaption></figure>
-        <figure class="rv"><img src="img/gruz.jpg" alt="Партия одежды" loading="lazy"><figcaption>Партия одежды для клиента</figcaption></figure>
-        <figure class="rv"><img src="img/kgt.jpg" alt="Крупногабаритный товар" loading="lazy"><figcaption>Крупногабаритный и хрупкий товар</figcaption></figure>
+      <div class="head rv"><h2>Наш склад</h2><p class="sub">Листайте, нажмите на фото, чтобы посмотреть крупно</p></div>
+      <div class="carousel rv">
+        <button class="car-btn prev" type="button" aria-label="Предыдущее фото"><svg class="ic"><use href="#i-arrow"/></svg></button>
+        <div class="gal" id="gal">
+        <figure><img src="img/priemka.jpg" alt="Приёмка партии" loading="lazy"><figcaption>Приёмка: больше 200 коробок постоянного клиента</figcaption></figure>
+        <figure><img src="img/podgotovleno.jpg" alt="Подготовлено к отгрузке" loading="lazy"><figcaption>Подготовлено к отгрузке</figcaption></figure>
+        <figure><img src="img/zagruzheno.jpg" alt="Загружено" loading="lazy"><figcaption>Загружено и едет на склад</figcaption></figure>
+        <figure><img src="img/partiya.jpg" alt="Новая партия" loading="lazy"><figcaption>Новая партия на приёмке</figcaption></figure>
+        <figure><img src="img/gruz.jpg" alt="Партия одежды" loading="lazy"><figcaption>Партия одежды для клиента</figcaption></figure>
+        <figure><img src="img/kgt.jpg" alt="Крупногабаритный товар" loading="lazy"><figcaption>Крупногабаритный и хрупкий товар</figcaption></figure>
+      </div>
+        <button class="car-btn next" type="button" aria-label="Следующее фото"><svg class="ic"><use href="#i-arrow"/></svg></button>
+        <div class="dots" id="galDots"></div>
       </div>
       <a class="btn o more" href="https://t.me/BRT_FF" target="_blank" rel="noopener"><svg class="ic"><use href="#i-send"/></svg>Видео со склада в канале</a>
     </section>
@@ -407,6 +413,6 @@
 
   <div class="lightbox" id="lb" hidden><button class="lb-x" aria-label="Закрыть">×</button><button class="lb-p" aria-label="Назад">‹</button><figure><img alt=""><figcaption></figcaption></figure><button class="lb-n" aria-label="Вперёд">›</button></div>
 </div>
-<script src="app.js?v=9"></script>
+<script src="app.js?v=10"></script>
 </body>
 </html>

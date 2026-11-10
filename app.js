@@ -134,3 +134,57 @@ function onScroll() {
 }
 window.addEventListener("scroll", onScroll, { passive: true });
 onScroll();
+
+/* ---------- карусель фото: стрелки, точки, перелистывание по кругу и тихое автолистание ---------- */
+(function () {
+  const gal = $("gal"), dotsBox = $("galDots");
+  if (!gal) return;
+  const items = [...gal.children];
+  const dots = items.map((_, i) => {
+    const b = document.createElement("button");
+    b.type = "button";
+    b.setAttribute("aria-label", "Фото " + (i + 1));
+    b.addEventListener("click", () => { go(i); pause(9000); });
+    dotsBox.appendChild(b);
+    return b;
+  });
+  const maxLeft = () => gal.scrollWidth - gal.clientWidth;
+  const pos = i => items[i].offsetLeft - items[0].offsetLeft;
+  function current() {
+    if (gal.scrollLeft >= maxLeft() - 4) return items.length - 1;
+    let best = 0;
+    items.forEach((_, i) => { if (Math.abs(pos(i) - gal.scrollLeft) < Math.abs(pos(best) - gal.scrollLeft)) best = i; });
+    return best;
+  }
+  function go(i) {
+    const n = items.length;
+    i = (i + n) % n;
+    gal.scrollTo({ left: Math.min(pos(i), maxLeft()), behavior: reduce ? "auto" : "smooth" });
+  }
+  /* после последнего видимого фото – снова к первому */
+  function step(d) {
+    const c = current();
+    if (d > 0 && gal.scrollLeft >= maxLeft() - 4) go(0);
+    else if (d < 0 && gal.scrollLeft <= 4) go(items.length - 1);
+    else go(c + d);
+  }
+  let raf = 0;
+  gal.addEventListener("scroll", () => {
+    cancelAnimationFrame(raf);
+    raf = requestAnimationFrame(() => { const c = current(); dots.forEach((d, i) => d.classList.toggle("on", i === c)); });
+  }, { passive: true });
+  dots[0].classList.add("on");
+  document.querySelector(".car-btn.prev").addEventListener("click", () => { step(-1); pause(9000); });
+  document.querySelector(".car-btn.next").addEventListener("click", () => { step(1); pause(9000); });
+
+  /* автолистание: только когда карусель на экране, не под мышкой и не после касания */
+  let visible = false, hold = 0, hover = false;
+  const pause = ms => { hold = Date.now() + ms; };
+  gal.parentElement.addEventListener("mouseenter", () => hover = true);
+  gal.parentElement.addEventListener("mouseleave", () => hover = false);
+  gal.addEventListener("touchstart", () => pause(10000), { passive: true });
+  if ("IntersectionObserver" in window) new IntersectionObserver(es => { visible = es[0].isIntersecting; }, { threshold: 0.4 }).observe(gal);
+  if (!reduce) setInterval(() => {
+    if (visible && !hover && Date.now() > hold && $("lb").hidden && !document.hidden) step(1);
+  }, 4000);
+})();
