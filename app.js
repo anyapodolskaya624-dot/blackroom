@@ -188,3 +188,22 @@ onScroll();
     if (visible && !hover && Date.now() > hold && $("lb").hidden && !document.hidden) step(1);
   }, 4000);
 })();
+
+/* ---------- схема складов на телефоне: рамка по рисунку, чтобы схема стояла по центру ----------
+   На ноутбуке рамка прежняя, её не трогаем. */
+(function () {
+  const svg = document.querySelector(".map");
+  if (!svg) return;
+  const DESK = "0 0 640 450";
+  const mq = window.matchMedia("(max-width:759px)");
+  function fit() {
+    if (!mq.matches) { svg.setAttribute("viewBox", DESK); return; }
+    svg.setAttribute("viewBox", DESK);
+    const b = svg.getBBox(), pad = 12;
+    svg.setAttribute("viewBox", [b.x - pad, b.y - pad, b.width + pad * 2, b.height + pad * 2].map(v => Math.round(v)).join(" "));
+  }
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(fit);
+  window.addEventListener("load", fit);
+  if (mq.addEventListener) mq.addEventListener("change", fit);
+  fit();
+})();
