@@ -1,0 +1,133 @@
+@import url("fonts/fonts.css");
+
+:root{
+  --bg:#151515; --head:#272727; --line:#5f5f5f; --border:#8b8b8b;
+  --ink:#ececec; --muted:#a9a9a9; --acc:#f6c84f; --acc-ink:#151515;
+  --r:22px; --bw:2px;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);
+  font-family:"Montserrat",-apple-system,"Helvetica Neue",Arial,sans-serif;font-size:16px;line-height:1.45;
+  -webkit-text-size-adjust:100%;overflow-x:hidden}
+a{color:inherit}
+img{max-width:100%;display:block}
+
+.page{position:relative;overflow:hidden;padding-bottom:96px}
+.wrap{position:relative;z-index:1;max-width:760px;margin:0 auto;padding:0 16px}
+
+/* мягкое свечение, как в прайсе: жёлтое с одной стороны, серое с другой, стороны чередуются */
+.glow{position:absolute;z-index:0;width:620px;height:620px;border-radius:50%;pointer-events:none}
+.glow.y{background:radial-gradient(closest-side,rgba(54,47,29,1) 0%,rgba(54,47,29,.75) 36%,rgba(54,47,29,.35) 57%,rgba(54,47,29,.05) 86%,rgba(54,47,29,0) 100%)}
+.glow.g{background:radial-gradient(closest-side,rgba(46,46,46,1) 0%,rgba(46,46,46,.75) 36%,rgba(46,46,46,.35) 57%,rgba(46,46,46,.05) 86%,rgba(46,46,46,0) 100%)}
+.glow.l{left:-310px}.glow.r{right:-310px}
+
+/* шапка */
+.top{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:18px 0 6px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none}
+.brand img{width:46px}
+.brand span{font-family:"Unbounded",sans-serif;font-weight:600;font-size:13px;letter-spacing:.04em;line-height:1.15}
+.top .btn{display:none}
+
+/* заголовки */
+h1,h2{font-family:"Unbounded",sans-serif;font-weight:600;margin:0;line-height:1.02;
+  background:linear-gradient(90deg,#f3f1f1 0%,#c8c7c7 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+h1{font-size:clamp(25px,7.6vw,58px);margin:28px 0 16px}
+h2{font-size:clamp(26px,7.6vw,44px);margin:0 0 18px}
+.lead{font-size:17px;color:#d6d6d6;margin:0 0 8px}
+.where{color:var(--acc);font-weight:600;margin:0 0 22px}
+section{position:relative;padding:34px 0}
+
+/* кнопки */
+.btns{display:flex;flex-wrap:wrap;gap:10px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:52px;padding:0 22px;border-radius:16px;
+  font:600 16px/1 "Montserrat",sans-serif;text-decoration:none;cursor:pointer;border:var(--bw) solid var(--acc)}
+.btn.y{background:var(--acc);color:var(--acc-ink)}
+.btn.o{background:transparent;color:var(--acc)}
+.btn.w{border-color:var(--border);color:var(--ink);background:transparent}
+
+/* таблица в стиле прайса */
+.tbl{border:var(--bw) solid var(--border);border-radius:var(--r);overflow:hidden;background:var(--bg)}
+.tbl + .tbl{margin-top:16px}
+.th{background:var(--head);text-align:center;font-weight:700;font-size:17px;padding:15px 16px}
+.row{display:grid;grid-template-columns:1fr minmax(104px,32%);border-top:var(--bw) solid var(--line)}
+.row > *{padding:13px 14px;text-align:center;display:flex;align-items:center;justify-content:center}
+.row .p{border-left:var(--bw) solid var(--line);color:var(--acc)}
+.row.one{grid-template-columns:1fr}
+.row.note{background:var(--head);color:var(--acc);grid-template-columns:1fr}
+.row.sub{grid-template-columns:1fr;background:#1b1b1b;color:var(--muted);font-size:14px}
+.row.b > *{font-weight:700}
+small.m{display:block;color:var(--muted);font-size:13px}
+
+/* аккордеон прайса */
+details.tbl summary{list-style:none;cursor:pointer;position:relative;padding-right:48px}
+details.tbl summary::-webkit-details-marker{display:none}
+details.tbl summary::after{content:"";position:absolute;right:20px;top:50%;width:10px;height:10px;margin-top:-7px;
+  border-right:2px solid var(--acc);border-bottom:2px solid var(--acc);transform:rotate(45deg);transition:transform .2s}
+details.tbl[open] summary::after{transform:rotate(-135deg);margin-top:-2px}
+details.tbl:not([open]) summary{border-bottom:0}
+.dl{margin-top:16px}
+
+/* калькулятор */
+.calc .field{border-top:var(--bw) solid var(--line);padding:14px 16px;display:grid;gap:8px}
+.calc .field:first-of-type{border-top:0}
+.calc label{font-weight:600}
+.calc .hint{color:var(--muted);font-size:13px;margin-top:-4px}
+.calc select,.calc input[type=number]{width:100%;min-height:50px;border-radius:14px;border:var(--bw) solid var(--line);
+  background:#1d1d1d;color:var(--ink);font:500 16px "Montserrat",sans-serif;padding:0 14px;appearance:none;-webkit-appearance:none}
+.calc select{background-image:linear-gradient(45deg,transparent 50%,var(--acc) 50%),linear-gradient(135deg,var(--acc) 50%,transparent 50%);
+  background-position:calc(100% - 22px) 22px,calc(100% - 16px) 22px;background-size:6px 6px;background-repeat:no-repeat;padding-right:40px}
+.calc select:focus,.calc input:focus{outline:none;border-color:var(--acc)}
+.chk{display:flex;align-items:center;justify-content:space-between;gap:12px;font-weight:500}
+.chk input{appearance:none;-webkit-appearance:none;flex:none;width:52px;height:30px;border-radius:30px;background:#333;position:relative;cursor:pointer;transition:background .2s}
+.chk input::after{content:"";position:absolute;top:3px;left:3px;width:24px;height:24px;border-radius:50%;background:#bdbdbd;transition:left .2s,background .2s}
+.chk input:checked{background:var(--acc)}
+.chk input:checked::after{left:25px;background:var(--acc-ink)}
+.chk span small{display:block;color:var(--muted);font-weight:400;font-size:13px}
+
+.res{margin-top:16px;border:var(--bw) solid var(--acc);border-radius:var(--r);background:var(--head);padding:18px 16px;text-align:center}
+.res .big{font-family:"Unbounded",sans-serif;font-weight:600;color:var(--acc);font-size:clamp(28px,8.5vw,42px);line-height:1.1}
+.res .lbl{color:var(--muted);font-size:14px}
+.res .pair{display:grid;grid-template-columns:1fr;gap:10px;margin-bottom:12px}
+.res .big{white-space:nowrap}
+.res ul{list-style:none;margin:12px 0 0;padding:0;text-align:left;font-size:14px}
+.res li{display:flex;justify-content:space-between;gap:12px;padding:7px 0;border-top:1px dashed #444}
+.res li span:last-child{color:var(--acc);white-space:nowrap}
+.res .note{color:var(--muted);font-size:13px;margin:12px 0 14px}
+.res .btn{width:100%}
+.copied{color:var(--acc);font-size:14px;margin-top:10px;min-height:20px}
+
+/* шаги */
+.steps{counter-reset:s}
+.steps .row.one{justify-content:flex-start}
+.steps .row.one > div{justify-content:flex-start;text-align:left;gap:14px}
+.steps .row.one > div::before{counter-increment:s;content:counter(s);flex:none;width:34px;height:34px;border-radius:50%;
+  background:var(--acc);color:var(--acc-ink);font-weight:700;display:flex;align-items:center;justify-content:center}
+
+/* фото */
+.gal{display:grid;grid-auto-flow:column;grid-auto-columns:76%;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:10px;
+  margin:0 -16px;padding-left:16px;padding-right:16px;scrollbar-width:none}
+.gal::-webkit-scrollbar{display:none}
+.gal figure{margin:0;scroll-snap-align:start;border:var(--bw) solid var(--border);border-radius:var(--r);overflow:hidden;background:var(--head)}
+.gal img{width:100%;aspect-ratio:3/4;object-fit:cover}
+.gal figcaption{padding:12px 14px;font-size:14px;text-align:center}
+.more{margin-top:14px}
+
+/* контакты */
+.contacts .row > *{justify-content:flex-start;text-align:left}
+.contacts .row{grid-template-columns:110px 1fr}
+.contacts .k{color:var(--muted);font-size:14px;border-right:var(--bw) solid var(--line)}
+.contacts .v a{color:var(--acc);font-weight:700;text-decoration:none}
+footer{color:var(--muted);font-size:13px;text-align:center;padding:26px 0 10px}
+
+/* нижняя панель на телефоне */
+.bar{position:fixed;left:0;right:0;bottom:0;z-index:10;display:flex;gap:10px;padding:10px 16px calc(10px + env(safe-area-inset-bottom));
+  background:rgba(21,21,21,.94);border-top:1px solid #333;backdrop-filter:blur(8px)}
+.bar .btn{flex:1;min-height:50px;padding:0 10px}
+
+@media (min-width:820px){
+  .page{padding-bottom:30px}
+  .bar{display:none}
+  .top .btn{display:inline-flex;min-height:44px}
+  .gal{grid-auto-flow:row;grid-template-columns:repeat(3,1fr);grid-auto-columns:auto;overflow:visible;margin:0;padding:0}
+  .glow{width:860px;height:860px}.glow.l{left:-430px}.glow.r{right:-430px}
+}
