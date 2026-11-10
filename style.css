@@ -131,3 +131,67 @@ footer{color:var(--muted);font-size:13px;text-align:center;padding:26px 0 10px}
   .gal{grid-auto-flow:row;grid-template-columns:repeat(3,1fr);grid-auto-columns:auto;overflow:visible;margin:0;padding:0}
   .glow{width:860px;height:860px}.glow.l{left:-430px}.glow.r{right:-430px}
 }
+
+/* ===== версия без цен ===== */
+.acc{color:var(--acc)}
+.sub{color:#cfcfcf;margin:-6px 0 18px}
+.row.one > div{display:block}
+.row.one b{color:#fff}
+#why .row.one > div, #fit .row.one > div{text-align:left}
+#fit .row.one > div{position:relative;padding-left:40px}
+#fit .row.one > div::before{content:"";position:absolute;left:16px;top:20px;width:10px;height:10px;border-radius:50%;background:var(--acc)}
+
+/* цифры на первом экране */
+.facts{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:26px}
+.facts div{border:var(--bw) solid var(--border);border-radius:18px;padding:14px 12px;background:rgba(21,21,21,.6)}
+.facts b{display:block;font-family:"Unbounded",sans-serif;font-weight:600;font-size:22px;color:var(--acc);line-height:1.1}
+.facts span{display:block;font-size:13px;color:#cfcfcf;margin-top:4px}
+
+/* карточки услуг */
+.cards{display:grid;grid-template-columns:1fr;gap:10px}
+.card{border:var(--bw) solid var(--border);border-radius:18px;padding:14px 16px;background:var(--bg)}
+.card b{display:block;font-size:16px;margin-bottom:4px}
+.card span{color:#c9c9c9;font-size:14px}
+
+/* склады */
+#where .tbl + .tbl{margin-top:14px}
+.chips{display:flex !important;flex-wrap:wrap;gap:8px;justify-content:center;padding:14px !important}
+.chips span{border:1.5px solid var(--line);border-radius:30px;padding:7px 13px;font-size:14px}
+
+/* истории */
+.cases{display:grid;gap:12px}
+.case{display:block;text-decoration:none;border:var(--bw) solid var(--border);border-radius:var(--r);padding:16px;background:var(--bg)}
+.case b{display:block;font-size:16px;margin-bottom:6px}
+.case span{display:block;color:#c9c9c9;font-size:14px}
+.case i{display:inline-block;margin-top:10px;font-style:normal;color:var(--acc);font-weight:600;font-size:14px}
+
+/* заявка на расчёт */
+.quote .q{padding:14px 14px 16px;border-top:var(--bw) solid var(--line)}
+.quote .q:first-child{border-top:0}
+.ql{font-weight:700;margin-bottom:10px}
+.opts{display:flex;flex-wrap:wrap;gap:8px}
+.opts label{cursor:pointer}
+.opts input{position:absolute;opacity:0;pointer-events:none}
+.opts span{display:inline-flex;align-items:center;min-height:42px;padding:0 14px;border:1.5px solid var(--line);border-radius:30px;font-size:14px;font-weight:500;background:#1b1b1b;transition:all .15s}
+.opts input:checked + span{background:var(--acc);border-color:var(--acc);color:var(--acc-ink);font-weight:600}
+.opts input:focus-visible + span{outline:2px solid var(--acc);outline-offset:2px}
+.quote .res{text-align:left}
+.quote .res .lbl{text-align:center;margin-bottom:8px}
+#preview{white-space:pre-wrap;font:500 14px/1.5 "Montserrat",sans-serif;color:#e0e0e0;margin:0 0 14px;padding:12px;border-radius:14px;background:#1b1b1b;border:1px solid #333}
+
+/* партнёрам */
+.lnk{color:var(--acc);font-weight:700}
+
+/* вопросы */
+#faq details.tbl summary{text-align:left;font-size:16px}
+#faq .row.one > div{text-align:left}
+
+/* нижняя панель: три кнопки */
+.bar .btn{font-size:15px}
+
+@media (min-width:820px){
+  .facts{grid-template-columns:repeat(4,1fr)}
+  .cards{grid-template-columns:1fr 1fr}
+  .cases{grid-template-columns:1fr 1fr}
+}
+.row.one b.acc{color:var(--acc)}
