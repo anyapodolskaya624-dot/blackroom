@@ -28,7 +28,7 @@ img{max-width:100%;display:block}
 .cube{display:none;position:absolute;z-index:0;width:300px;height:auto;opacity:.1;pointer-events:none;animation:drift 14s ease-in-out infinite alternate}
 .cube.l{left:-90px}.cube.r{right:-90px;animation-delay:-7s}
 /* логотип у «Кому подходим»: ровно, без наклона, и край экрана не режет надпись */
-.cube.straight{left:max(0px, calc((100vw - 1180px) / 2 - 150px));animation-name:floaty}
+.cube.straight{left:calc(max(16px, (100vw - 1180px) / 2 + 16px) - 17px);animation-name:floaty}
 @keyframes drift{from{transform:translateY(-14px) rotate(-4deg)}to{transform:translateY(14px) rotate(4deg)}}
 @keyframes floaty{from{transform:translateY(-8px)}to{transform:translateY(8px)}}
 
