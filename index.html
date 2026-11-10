@@ -12,7 +12,7 @@
 <link rel="icon" type="image/png" href="img/favicon.png">
 <link rel="preload" href="fonts/unbounded-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/montserrat-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="style.css?v=8">
+<link rel="stylesheet" href="style.css?v=9">
 <script>document.documentElement.classList.add("js")</script>
 </head>
 <body>
@@ -38,6 +38,7 @@
     <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
     <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
     <symbol id="i-send" viewBox="0 0 24 24"><path d="M21 3L3 10.5l7 2.5 2.5 7z"/><path d="M21 3l-11 10"/></symbol>
+    <symbol id="i-play" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M10 9.3v5.4l4.6-2.7z"/></symbol>
     <symbol id="i-phone" viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 005 5L15 13l5 2v4a2 2 0 01-2 2A16 16 0 013 6a2 2 0 012-2z"/></symbol>
   </defs>
 </svg>
@@ -56,8 +57,6 @@
   <div class="glow g r" data-sec="partners" data-pos="0.5"></div>
   <div class="glow y r" data-sec="faq" data-pos="0.6"></div>
   <div class="glow g l" data-sec="contacts" data-pos="0.5"></div>
-
-  <img class="cube l straight" data-sec="fit" data-pos="0.74" src="img/logo-white.png" alt="" aria-hidden="true">
   <img class="cube r" data-sec="quote" data-pos="0.78" src="img/logo-white.png" alt="" aria-hidden="true">
   <img class="cube l" data-sec="partners" data-pos="0.8" src="img/logo-white.png" alt="" aria-hidden="true">
 
@@ -83,6 +82,7 @@
 
     <!-- первый экран -->
     <section id="top" class="hero">
+      <img class="hero-logo" src="img/logo-white.png" alt="" aria-hidden="true">
       <div class="hero-text">
         <h1>Фулфилмент для маркетплейсов</h1>
         <p class="lead">Небольшой фулфилмент, который знает каждого селлера в лицо. Заберём товар с карго и рынков, примем, проверим, промаркируем, упакуем и довезём до склада Wildberries, Ozon и Яндекс Маркета.</p>
@@ -122,7 +122,7 @@
 
     <!-- кому подходим -->
     <section id="fit" class="split">
-      <div class="head rv"><h2>Кому подходим</h2><p class="sub">Вам к нам, если вы</p></div>
+      <div class="head rv"><h2>Кому подходим</h2><p class="sub">Вам к нам, если вы</p><img class="fit-logo" src="img/logo-white.png" alt="" aria-hidden="true"></div>
       <div class="tbl rv">
         <div class="row one dot"><div>Продаёте на Wildberries, Ozon или Яндекс Маркете</div></div>
         <div class="row one dot"><div>Возите товар из Китая через карго или закупаетесь на Садоводе и Южных воротах</div></div>
@@ -367,14 +367,25 @@
     <section id="contacts" class="contacts">
       <div class="head rv"><h2>Контакты</h2></div>
       <div class="contact-grid">
-        <div class="tbl rv">
-          <div class="row"><div class="k">Telegram</div><div class="v"><a href="https://t.me/BRTfulfilment" target="_blank" rel="noopener">@BRTfulfilment</a></div></div>
-          <div class="row"><div class="k">Канал</div><div class="v"><a href="https://t.me/BRT_FF" target="_blank" rel="noopener">t.me/BRT_FF</a></div></div>
-          <div class="row"><div class="k">Телефон</div><div class="v"><a href="tel:+79096630201">+7 (909) 663-02-01</a></div></div>
-          <div class="row"><div class="k">Часы</div><div class="v">10:00–19:00</div></div>
-          <div class="row"><div class="k">Склад</div><div class="v"><a href="https://yandex.ru/maps/?text=%D0%9F%D1%83%D1%80%D1%88%D0%B5%D0%B2%D0%BE%2C%20%D0%9D%D0%BE%D0%B2%D0%BE%D1%81%D0%BB%D0%BE%D0%B1%D0%BE%D0%B4%D1%81%D0%BA%D0%B0%D1%8F%2C%2066" target="_blank" rel="noopener">Московская область, д. Пуршево, Новослободская, 66</a></div></div>
+        <div class="cgrid">
+          <a class="ccard rv" href="https://t.me/BRTfulfilment" target="_blank" rel="noopener">
+            <span class="ci"><svg class="ic"><use href="#i-send"/></svg></span>
+            <span class="ct"><span class="cl">Telegram</span><b>@BRTfulfilment</b><i>Написать<svg class="ic"><use href="#i-arrow"/></svg></i></span></a>
+          <a class="ccard rv" href="tel:+79096630201">
+            <span class="ci"><svg class="ic"><use href="#i-phone"/></svg></span>
+            <span class="ct"><span class="cl">Телефон</span><b>+7 (909) 663-02-01</b><i>Позвонить<svg class="ic"><use href="#i-arrow"/></svg></i></span></a>
+          <a class="ccard rv" href="https://t.me/BRT_FF" target="_blank" rel="noopener">
+            <span class="ci"><svg class="ic"><use href="#i-play"/></svg></span>
+            <span class="ct"><span class="cl">Канал со склада</span><b>t.me/BRT_FF</b><i>Смотреть видео<svg class="ic"><use href="#i-arrow"/></svg></i></span></a>
+          <div class="ccard rv">
+            <span class="ci"><svg class="ic"><use href="#i-clock"/></svg></span>
+            <span class="ct"><span class="cl">Часы работы</span><b>10:00–19:00</b></span></div>
+          <a class="ccard wide rv" href="https://yandex.ru/maps/?text=%D0%9F%D1%83%D1%80%D1%88%D0%B5%D0%B2%D0%BE%2C%20%D0%9D%D0%BE%D0%B2%D0%BE%D1%81%D0%BB%D0%BE%D0%B1%D0%BE%D0%B4%D1%81%D0%BA%D0%B0%D1%8F%2C%2066" target="_blank" rel="noopener">
+            <span class="ci"><svg class="ic"><use href="#i-pin"/></svg></span>
+            <span class="ct"><span class="cl">Склад</span><b>Московская область, д. Пуршево, Новослободская, 66</b><i>Открыть на карте<svg class="ic"><use href="#i-arrow"/></svg></i></span></a>
         </div>
         <div class="cta rv">
+          <img class="cta-logo" src="img/logo-white.png" alt="" aria-hidden="true">
           <b>Опишите товар – посчитаем</b>
           <span>Пришлём прайс и расчёт под вашу партию в Telegram.</span>
           <div class="btns">
@@ -388,14 +399,14 @@
     <footer>Black Room fulfillment · Пуршево</footer>
   </main>
 
-  <nav class="bar">
-    <a class="btn y" href="#quote">Расчёт</a>
-    <a class="btn o" href="https://t.me/BRTfulfilment" target="_blank" rel="noopener">Telegram</a>
-    <a class="btn o" href="tel:+79096630201">Звонок</a>
+  <nav class="bar" id="bar">
+    <a class="btn y" href="#quote"><svg class="ic"><use href="#i-doc"/></svg>Получить расчёт</a>
+    <a class="bar-ic" href="https://t.me/BRTfulfilment" target="_blank" rel="noopener" aria-label="Написать в Telegram"><svg class="ic"><use href="#i-send"/></svg></a>
+    <a class="bar-ic" href="tel:+79096630201" aria-label="Позвонить"><svg class="ic"><use href="#i-phone"/></svg></a>
   </nav>
 
   <div class="lightbox" id="lb" hidden><button class="lb-x" aria-label="Закрыть">×</button><button class="lb-p" aria-label="Назад">‹</button><figure><img alt=""><figcaption></figcaption></figure><button class="lb-n" aria-label="Вперёд">›</button></div>
 </div>
-<script src="app.js?v=8"></script>
+<script src="app.js?v=9"></script>
 </body>
 </html>

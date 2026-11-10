@@ -87,6 +87,13 @@ document.querySelectorAll('.chips span[data-n], .map .nd').forEach(el => {
   el.addEventListener("mouseenter", () => hl(el.dataset.n, true));
   el.addEventListener("mouseleave", () => hl(el.dataset.n, false));
 });
+/* на телефоне наведения нет – маршрут подсвечивается касанием */
+let tapped = null;
+document.querySelectorAll('.chips span[data-n]').forEach(el => el.addEventListener("click", () => {
+  if (tapped) hl(tapped, false);
+  tapped = tapped === el.dataset.n ? null : el.dataset.n;
+  if (tapped) hl(tapped, true);
+}));
 
 /* ---------- фото крупно ---------- */
 const figs = [...document.querySelectorAll(".gal figure")];
@@ -116,8 +123,11 @@ document.addEventListener("keydown", e => {
 const bar = document.querySelector(".topbar");
 const links = [...document.querySelectorAll(".menu a")];
 const secs = links.map(a => document.querySelector(a.getAttribute("href")));
+const mbar = $("bar"), heroBtns = document.querySelector(".hero .btns");
 function onScroll() {
   bar.classList.toggle("scrolled", scrollY > 10);
+  /* нижняя панель на телефоне – только когда кнопки первого экрана ушли из вида */
+  if (mbar && heroBtns) mbar.classList.toggle("show", heroBtns.getBoundingClientRect().bottom < 0);
   let on = -1;
   secs.forEach((s, i) => { if (s && s.getBoundingClientRect().top < 140) on = i; });
   links.forEach((a, i) => a.classList.toggle("on", i === on));
