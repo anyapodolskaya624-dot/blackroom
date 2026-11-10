@@ -13,267 +13,389 @@
 <link rel="preload" href="fonts/unbounded-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/montserrat-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="style.css">
+<script>document.documentElement.classList.add("js")</script>
 </head>
 <body>
-<div class="page">
-  <div class="glow y l" data-sec="top" data-pos="0.25"></div>
-  <div class="glow g r" data-sec="why" data-pos="0.5"></div>
-  <div class="glow y r" data-sec="services" data-pos="0.3"></div>
-  <div class="glow g l" data-sec="where" data-pos="0.5"></div>
-  <div class="glow y l" data-sec="cases" data-pos="0.4"></div>
-  <div class="glow g r" data-sec="photo" data-pos="0.5"></div>
-  <div class="glow y r" data-sec="quote" data-pos="0.3"></div>
-  <div class="glow g l" data-sec="quote" data-pos="0.85"></div>
-  <div class="glow y l" data-sec="partners" data-pos="0.5"></div>
-  <div class="glow g r" data-sec="faq" data-pos="0.5"></div>
-  <div class="glow y r" data-sec="contacts" data-pos="0.5"></div>
 
-  <div class="wrap">
-    <header class="top">
+<!-- иконки: тонкие жёлтые линии -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-chat" viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4z"/><path d="M8 9.5h8M8 12.5h5"/></symbol>
+    <symbol id="i-doc" viewBox="0 0 24 24"><path d="M7 3h7l5 5v13H7z"/><path d="M14 3v5h5"/><path d="M10 13h6M10 17h6"/></symbol>
+    <symbol id="i-truck" viewBox="0 0 24 24"><path d="M2.5 6h11.5v10H2.5z"/><path d="M14 9.5h4l3.5 3.5v3H14"/><circle cx="6.5" cy="17.5" r="2"/><circle cx="17.5" cy="17.5" r="2"/></symbol>
+    <symbol id="i-box" viewBox="0 0 24 24"><path d="M12 3l8 4.5v9L12 21l-8-4.5v-9z"/><path d="M4 7.5l8 4.5 8-4.5M12 12v9"/></symbol>
+    <symbol id="i-barcode" viewBox="0 0 24 24"><path d="M4 5v14M7 5v14M9.5 5v14M13 5v14M15.5 5v14M20 5v14"/><path d="M17.5 5v14" stroke-width="3"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z"/><path d="M9 12l2 2 4-4"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></symbol>
+    <symbol id="i-people" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><path d="M16 5a3 3 0 010 6M21 20c0-2.6-1.7-4.8-4-5.6"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="M20 20l-4.3-4.3"/></symbol>
+    <symbol id="i-cycle" viewBox="0 0 24 24"><path d="M4.5 11a7.5 7.5 0 0113.4-4.4L20 9"/><path d="M20 4v5h-5"/><path d="M19.5 13a7.5 7.5 0 01-13.4 4.4L4 15"/><path d="M4 20v-5h5"/></symbol>
+    <symbol id="i-layers" viewBox="0 0 24 24"><path d="M12 3.5l9 5-9 5-9-5z"/><path d="M3 13l9 5 9-5"/></symbol>
+    <symbol id="i-eye" viewBox="0 0 24 24"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></symbol>
+    <symbol id="i-store" viewBox="0 0 24 24"><path d="M3 10l9-6 9 6v10H3z"/><path d="M7 20v-6h10v6M7 17h10"/></symbol>
+    <symbol id="i-pallet" viewBox="0 0 24 24"><path d="M5 4h14v11H5z"/><path d="M5 9.5h14M12 4v11"/><path d="M3 15h18M4 15v4M12 15v4M20 15v4M3 19h18"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s-7-6.5-7-12a7 7 0 0114 0c0 5.5-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+    <symbol id="i-send" viewBox="0 0 24 24"><path d="M21 3L3 10.5l7 2.5 2.5 7z"/><path d="M21 3l-11 10"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 005 5L15 13l5 2v4a2 2 0 01-2 2A16 16 0 013 6a2 2 0 012-2z"/></symbol>
+  </defs>
+</svg>
+
+<div class="page">
+  <!-- свечение и кубы по краям: расставляются по блокам скриптом -->
+  <div class="glow y l" data-sec="top" data-pos="0.3"></div>
+  <div class="glow g r" data-sec="top" data-pos="0.85"></div>
+  <div class="glow y r" data-sec="services" data-pos="0.4"></div>
+  <div class="glow g l" data-sec="how" data-pos="0.5"></div>
+  <div class="glow y l" data-sec="where" data-pos="0.5"></div>
+  <div class="glow g r" data-sec="cases" data-pos="0.5"></div>
+  <div class="glow y r" data-sec="photo" data-pos="0.5"></div>
+  <div class="glow g l" data-sec="quote" data-pos="0.3"></div>
+  <div class="glow y l" data-sec="quote" data-pos="0.85"></div>
+  <div class="glow g r" data-sec="partners" data-pos="0.5"></div>
+  <div class="glow y r" data-sec="faq" data-pos="0.6"></div>
+  <div class="glow g l" data-sec="contacts" data-pos="0.5"></div>
+
+  <svg class="cube l" data-sec="why" data-pos="0.4" viewBox="0 0 200 230" aria-hidden="true"><path d="M100 5L195 57v116L100 225 5 173V57z"/><path d="M100 5v110M100 115L5 173M100 115l95 58"/></svg>
+  <svg class="cube r" data-sec="where" data-pos="0.2" viewBox="0 0 200 230" aria-hidden="true"><path d="M100 5L195 57v116L100 225 5 173V57z"/><path d="M100 5v110M100 115L5 173M100 115l95 58"/></svg>
+  <svg class="cube l" data-sec="photo" data-pos="0.6" viewBox="0 0 200 230" aria-hidden="true"><path d="M100 5L195 57v116L100 225 5 173V57z"/><path d="M100 5v110M100 115L5 173M100 115l95 58"/></svg>
+  <svg class="cube r" data-sec="faq" data-pos="0.3" viewBox="0 0 200 230" aria-hidden="true"><path d="M100 5L195 57v116L100 225 5 173V57z"/><path d="M100 5v110M100 115L5 173M100 115l95 58"/></svg>
+
+  <header class="topbar">
+    <div class="wrap top">
       <a class="brand" href="#top"><img src="img/logo-white.png" alt=""><span>BLACK ROOM<br>fulfillment</span></a>
-      <a class="btn y" href="#quote">Получить расчёт</a>
-    </header>
+      <nav class="menu">
+        <a href="#services">Услуги</a>
+        <a href="#how">Как работаем</a>
+        <a href="#where">Куда возим</a>
+        <a href="#cases">Истории</a>
+        <a href="#partners">Партнёрам</a>
+        <a href="#faq">Вопросы</a>
+      </nav>
+      <div class="topbtns">
+        <a class="btn o sm" href="https://t.me/BRTfulfilment" target="_blank" rel="noopener"><svg class="ic"><use href="#i-send"/></svg>Telegram</a>
+        <a class="btn y sm" href="#quote">Получить расчёт</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
 
     <!-- первый экран -->
-    <section id="top" style="padding-top:6px">
-      <h1>Фулфилмент для маркетплейсов</h1>
-      <p class="lead">Небольшой фулфилмент, который знает каждого селлера в лицо. Заберём товар с карго и рынков, примем, проверим, промаркируем, упакуем и довезём до склада Wildberries, Ozon и Яндекс Маркета.</p>
-      <p class="where">Склад в Пуршево, восток Подмосковья</p>
-      <div class="btns">
-        <a class="btn y" href="#quote">Получить расчёт</a>
-        <a class="btn o" href="https://t.me/BRTfulfilment" target="_blank" rel="noopener">Написать в Telegram</a>
+    <section id="top" class="hero">
+      <div class="hero-text">
+        <h1>Фулфилмент для маркетплейсов</h1>
+        <p class="lead">Небольшой фулфилмент, который знает каждого селлера в лицо. Заберём товар с карго и рынков, примем, проверим, промаркируем, упакуем и довезём до склада Wildberries, Ozon и Яндекс Маркета.</p>
+        <p class="where"><svg class="ic"><use href="#i-pin"/></svg>Склад в Пуршево, восток Подмосковья</p>
+        <div class="btns">
+          <a class="btn y" href="#quote">Получить расчёт<svg class="ic"><use href="#i-arrow"/></svg></a>
+          <a class="btn o" href="https://t.me/BRTfulfilment" target="_blank" rel="noopener"><svg class="ic"><use href="#i-send"/></svg>Написать в Telegram</a>
+        </div>
+        <div class="facts">
+          <div class="rv"><b data-to="3" data-suf=" года">3 года</b><span>ни один клиент не ушёл</span></div>
+          <div class="rv"><b data-to="200" data-suf=" м²">200 м²</b><span>новый склад в Пуршево</span></div>
+          <div class="rv"><b data-to="10000">10 000</b><span>единиц маркировки в день</span></div>
+          <div class="rv"><b data-to="24" data-suf=" часа">24 часа</b><span>срочная обработка</span></div>
+        </div>
       </div>
-      <div class="facts">
-        <div><b>3 года</b><span>ни один клиент не ушёл</span></div>
-        <div><b>200 м²</b><span>новый склад в Пуршево</span></div>
-        <div><b>10 000</b><span>единиц маркировки в день</span></div>
-        <div><b>24 часа</b><span>срочная обработка</span></div>
+      <div class="hero-visual" aria-hidden="true">
+        <img class="ph ph1" src="img/priemka.jpg" alt="">
+        <img class="ph ph2" src="img/partiya.jpg" alt="">
+        <img class="ph ph3" src="img/zagruzheno.jpg" alt="">
+        <div class="chip-f f1"><svg class="ic"><use href="#i-box"/></svg><div><b>Приёмка</b><span>200+ коробок за раз</span></div></div>
+        <div class="chip-f f2"><svg class="ic"><use href="#i-barcode"/></svg><div><b>Маркировка</b><span>штрихкоды и «Честный знак»</span></div></div>
+        <div class="chip-f f3"><svg class="ic"><use href="#i-truck"/></svg><div><b>Отгрузка</b><span>склады WB и Ozon</span></div></div>
       </div>
     </section>
 
     <!-- почему мы -->
     <section id="why">
-      <h2>Почему мы</h2>
-      <div class="tbl">
-        <div class="th">Фулфилмент, который не бросает</div>
-        <div class="row one"><div><b>Клиенты не уходят.</b> За 3 года от нас не ушёл ни один клиент.</div></div>
-        <div class="row one"><div><b>Всегда на связи.</b> Отвечаем быстро, говорим простым языком и держим в курсе каждого шага.</div></div>
-        <div class="row one"><div><b>Не бросаем в беде.</b> Когда маркетплейс теряет поставку, мы сами едем на его склад и ищем коробки.</div></div>
-        <div class="row one"><div><b>Полный цикл.</b> Сами забираем товар, обрабатываем и везём на склады маркетплейсов.</div></div>
-        <div class="row one"><div><b>Любой товар.</b> Россыпь и фасовка, одежда, крупногабаритный и хрупкий.</div></div>
+      <div class="head rv"><h2>Почему мы</h2><p class="sub">Фулфилмент, который не бросает</p></div>
+      <div class="grid why-grid">
+        <div class="card rv"><svg class="ic big"><use href="#i-people"/></svg><b>Клиенты не уходят</b><span>За 3 года от нас не ушёл ни один клиент.</span></div>
+        <div class="card rv"><svg class="ic big"><use href="#i-chat"/></svg><b>Всегда на связи</b><span>Отвечаем быстро, говорим простым языком и держим в курсе каждого шага.</span></div>
+        <div class="card rv"><svg class="ic big"><use href="#i-search"/></svg><b>Не бросаем в беде</b><span>Когда маркетплейс теряет поставку, мы сами едем на его склад и ищем коробки.</span></div>
+        <div class="card rv"><svg class="ic big"><use href="#i-cycle"/></svg><b>Полный цикл</b><span>Сами забираем товар, обрабатываем и везём на склады маркетплейсов.</span></div>
+        <div class="card rv"><svg class="ic big"><use href="#i-layers"/></svg><b>Любой товар</b><span>Россыпь и фасовка, одежда, крупногабаритный и хрупкий.</span></div>
       </div>
     </section>
 
     <!-- кому подходим -->
-    <section id="fit">
-      <h2>Кому подходим</h2>
-      <div class="tbl">
-        <div class="th">Вам к нам, если вы</div>
-        <div class="row one"><div>Продаёте на Wildberries, Ozon или Яндекс Маркете</div></div>
-        <div class="row one"><div>Возите товар из Китая через карго или закупаетесь на Садоводе и Южных воротах</div></div>
-        <div class="row one"><div>Хотите передать товар и не тратить время на приёмку, маркировку и упаковку</div></div>
-        <div class="row one"><div>Работаете со сложным товаром: россыпь, одежда, крупногабаритный, хрупкий</div></div>
+    <section id="fit" class="split">
+      <div class="head rv"><h2>Кому подходим</h2><p class="sub">Вам к нам, если вы</p></div>
+      <div class="tbl rv">
+        <div class="row one dot"><div>Продаёте на Wildberries, Ozon или Яндекс Маркете</div></div>
+        <div class="row one dot"><div>Возите товар из Китая через карго или закупаетесь на Садоводе и Южных воротах</div></div>
+        <div class="row one dot"><div>Хотите передать товар и не тратить время на приёмку, маркировку и упаковку</div></div>
+        <div class="row one dot"><div>Работаете со сложным товаром: россыпь, одежда, крупногабаритный, хрупкий</div></div>
       </div>
     </section>
 
     <!-- услуги -->
     <section id="services">
-      <h2>Что делаем</h2>
-      <div class="cards">
-        <div class="card"><b>Забор товара</b><span>С Южных ворот, Садовода, ТЯК Москва, от карго, из транспортных компаний и ПВЗ</span></div>
-        <div class="card"><b>Приёмка</b><span>Пересчёт, сортировка по цветам, размерам и артикулам, разгрузка коробов и мешков</span></div>
-        <div class="card"><b>Проверка на брак</b><span>Визуальная, проверка техники и одежды</span></div>
-        <div class="card"><b>Маркировка</b><span>Штрихкоды маркетплейсов и «Честный знак»</span></div>
-        <div class="card"><b>Упаковка</b><span>Пакеты, короба, пузырчатая плёнка, ПЭ-рукав, бирки, вкладыши, комплектация наборов</span></div>
-        <div class="card"><b>Хранение</b><span>Первая неделя хранения бесплатно</span></div>
-        <div class="card"><b>Поставки</b><span>Создаём поставку в личном кабинете, собираем короба и паллеты</span></div>
-        <div class="card"><b>Доставка</b><span>Довозим до складов Wildberries и Ozon</span></div>
+      <div class="head rv"><h2>Что делаем</h2></div>
+      <div class="grid svc-grid">
+        <div class="card rv"><svg class="ic big"><use href="#i-truck"/></svg><b>Забор товара</b><span>С Южных ворот, Садовода, ТЯК Москва, от карго, из транспортных компаний и ПВЗ</span></div>
+        <div class="card rv"><svg class="ic big"><use href="#i-box"/></svg><b>Приёмка</b><span>Пересчёт, сортировка по цветам, размерам и артикулам, разгрузка коробов и мешков</span></div>
+        <div class="card rv"><svg class="ic big"><use href="#i-eye"/></svg><b>Проверка на брак</b><span>Визуальная, проверка техники и одежды</span></div>
+        <div class="card rv"><svg class="ic big"><use href="#i-barcode"/></svg><b>Маркировка</b><span>Штрихкоды маркетплейсов и «Честный знак»</span></div>
+        <div class="card rv"><svg class="ic big"><use href="#i-layers"/></svg><b>Упаковка</b><span>Пакеты, короба, пузырчатая плёнка, ПЭ-рукав, бирки, вкладыши, наборы</span></div>
+        <div class="card rv"><svg class="ic big"><use href="#i-store"/></svg><b>Хранение</b><span>Первая неделя хранения бесплатно</span></div>
+        <div class="card rv"><svg class="ic big"><use href="#i-pallet"/></svg><b>Поставки</b><span>Создаём поставку в личном кабинете, собираем короба и паллеты</span></div>
+        <div class="card rv"><svg class="ic big"><use href="#i-clock"/></svg><b>Срочно</b><span>Срочный заказ обработаем вне очереди за 24 часа</span></div>
       </div>
     </section>
 
-    <!-- куда возим -->
-    <section id="where">
-      <h2>Куда возим</h2>
-      <div class="tbl">
-        <div class="th">Склады Wildberries</div>
-        <div class="row one"><div class="chips"><span>Коледино</span><span>Подольск</span><span>Обухово</span><span>Электросталь</span><span>Тула</span><span>Санкт-Петербург</span><span>Казань</span><span>Краснодар</span><span>Екатеринбург</span></div></div>
+    <!-- как работаем: путь товара -->
+    <section id="how">
+      <div class="head rv"><h2>Как работаем</h2><p class="sub">Путь товара от вашего поставщика до склада маркетплейса</p></div>
+      <ol class="flow rv">
+        <li><span class="n"><svg class="ic"><use href="#i-chat"/></svg></span><b>Пишете нам</b><span>В Telegram: что за товар и сколько</span></li>
+        <li><span class="n"><svg class="ic"><use href="#i-doc"/></svg></span><b>Считаем</b><span>Присылаем прайс и стоимость под ваш товар</span></li>
+        <li><span class="n"><svg class="ic"><use href="#i-truck"/></svg></span><b>Забираем</b><span>С карго, рынка, из транспортной компании или ПВЗ</span></li>
+        <li><span class="n"><svg class="ic"><use href="#i-shield"/></svg></span><b>Обрабатываем</b><span>Приёмка, проверка на брак, маркировка, упаковка</span></li>
+        <li><span class="n"><svg class="ic"><use href="#i-store"/></svg></span><b>Отгружаем</b><span>Везём на склады Wildberries и Ozon</span></li>
+      </ol>
+    </section>
+
+    <!-- куда возим: схема -->
+    <section id="where" class="split wide">
+      <div class="map-wrap rv">
+        <svg class="map" viewBox="0 0 640 450" role="img" aria-label="Схема: от склада в Пуршево к складам Wildberries и Ozon">
+          <circle class="msk" cx="270" cy="205" r="82"/>
+          <text class="msk-t" x="270" y="114" text-anchor="middle">Москва</text>
+          <g class="routes">
+            <path class="rt wb" data-n="koledino" d="M440 190 Q330 260 245 330"/>
+            <path class="rt wb" data-n="podolsk" d="M440 190 Q320 280 200 352"/>
+            <path class="rt wb" data-n="obuhovo" d="M440 190 Q480 140 522 112"/>
+            <path class="rt wb" data-n="elektrostal" d="M440 190 Q500 180 565 188"/>
+            <path class="rt wb" data-n="tula" d="M440 190 Q330 320 236 418"/>
+            <path class="rt oz" data-n="zamosk" d="M440 190 Q360 200 282 214"/>
+            <path class="rt oz" data-n="chermyan" d="M440 190 Q360 150 268 148"/>
+            <path class="rt oz" data-n="domod" d="M440 190 Q380 270 322 338"/>
+            <path class="rt oz" data-n="sofino" d="M440 190 Q440 260 418 320"/>
+            <path class="rt oz" data-n="pushkino" d="M440 190 Q410 130 362 86"/>
+          </g>
+          <g class="nodes">
+            <g class="nd wb" data-n="koledino"><circle cx="245" cy="330" r="7"/><text x="232" y="334" text-anchor="end">Коледино</text></g>
+            <g class="nd wb" data-n="podolsk"><circle cx="200" cy="352" r="7"/><text x="187" y="356" text-anchor="end">Подольск</text></g>
+            <g class="nd wb" data-n="obuhovo"><circle cx="522" cy="112" r="7"/><text x="535" y="116">Обухово</text></g>
+            <g class="nd wb" data-n="elektrostal"><circle cx="565" cy="188" r="7"/><text x="565" y="170" text-anchor="middle">Электросталь</text></g>
+            <g class="nd wb" data-n="tula"><circle cx="236" cy="418" r="7"/><text x="250" y="422">Тула</text></g>
+            <g class="nd oz" data-n="zamosk"><circle cx="282" cy="214" r="7"/><text x="270" y="240" text-anchor="middle">Замоскворечье</text></g>
+            <g class="nd oz" data-n="chermyan"><circle cx="268" cy="148" r="7"/><text x="268" y="136" text-anchor="middle">Чермянская</text></g>
+            <g class="nd oz" data-n="domod"><circle cx="322" cy="338" r="7"/><text x="336" y="342">Домодедово</text></g>
+            <g class="nd oz" data-n="sofino"><circle cx="418" cy="320" r="7"/><text x="432" y="324">Софьино</text></g>
+            <g class="nd oz" data-n="pushkino"><circle cx="362" cy="86" r="7"/><text x="362" y="70" text-anchor="middle">Пушкино</text></g>
+          </g>
+          <g class="hub">
+            <circle class="pulse" cx="440" cy="190" r="16"/>
+            <circle class="core" cx="440" cy="190" r="15"/>
+            <text x="474" y="236" class="hub-t">Black Room</text>
+            <text x="474" y="254" class="hub-s">Пуршево</text>
+          </g>
+        </svg>
+        <div class="legend"><span><i class="lg wb"></i>Wildberries</span><span><i class="lg oz"></i>Ozon</span><span class="muted">Схема, не в масштабе</span></div>
       </div>
-      <div class="tbl">
-        <div class="th">Склады Ozon</div>
-        <div class="row one"><div class="chips"><span>Замоскворечье</span><span>Чермянская</span><span>Домодедово</span><span>Софьино</span><span>Пушкино</span></div></div>
+      <div class="where-text">
+        <div class="head rv"><h2>Куда возим</h2><p class="sub">Наведите на склад – подсветим маршрут</p></div>
+        <div class="tbl rv">
+          <div class="th">Склады Wildberries</div>
+          <div class="row one"><div class="chips">
+            <span data-n="koledino">Коледино</span><span data-n="podolsk">Подольск</span><span data-n="obuhovo">Обухово</span><span data-n="elektrostal">Электросталь</span><span data-n="tula">Тула</span><span>Санкт-Петербург</span><span>Казань</span><span>Краснодар</span><span>Екатеринбург</span>
+          </div></div>
+        </div>
+        <div class="tbl rv">
+          <div class="th">Склады Ozon</div>
+          <div class="row one"><div class="chips">
+            <span data-n="zamosk">Замоскворечье</span><span data-n="chermyan">Чермянская</span><span data-n="domod">Домодедово</span><span data-n="sofino">Софьино</span><span data-n="pushkino">Пушкино</span>
+          </div></div>
+        </div>
       </div>
     </section>
 
     <!-- истории -->
     <section id="cases">
-      <h2>Истории со склада</h2>
-      <div class="cases">
-        <a class="case" href="https://t.me/BRT_FF/16" target="_blank" rel="noopener">
+      <div class="head rv"><h2>Истории со склада</h2><p class="sub">Как мы работаем – на реальных случаях из нашего канала</p></div>
+      <div class="grid cases">
+        <a class="case rv" href="https://t.me/BRT_FF/16" target="_blank" rel="noopener">
+          <svg class="ic big"><use href="#i-eye"/></svg>
           <b>Пересорт на приёмке маркетплейса</b>
           <span>Приёмщица наклеила один штрихкод на три разных артикула. Мы запросили видео, поминутно его пересмотрели, нашли ошибку и показали клиенту.</span>
-          <i>Читать в канале</i></a>
-        <a class="case" href="https://t.me/BRT_FF/5" target="_blank" rel="noopener">
+          <i>Читать в канале<svg class="ic"><use href="#i-arrow"/></svg></i></a>
+        <a class="case rv" href="https://t.me/BRT_FF/5" target="_blank" rel="noopener">
+          <svg class="ic big"><use href="#i-search"/></svg>
           <b>Ozon потерял поставки</b>
           <span>Поставки клиентов несколько раз терялись на приёмке, поддержка разводила руками. Мы сами ехали на склад маркетплейса и находили коробки.</span>
-          <i>Читать в канале</i></a>
-        <a class="case" href="https://t.me/BRT_FF/10" target="_blank" rel="noopener">
+          <i>Читать в канале<svg class="ic"><use href="#i-arrow"/></svg></i></a>
+        <a class="case rv" href="https://t.me/BRT_FF/10" target="_blank" rel="noopener">
+          <svg class="ic big"><use href="#i-cycle"/></svg>
           <b>Ревизия склада</b>
           <span>Раз в несколько месяцев перебираем весь склад и сверяем остатки, чтобы вы всегда знали, сколько вашего товара у нас.</span>
-          <i>Читать в канале</i></a>
-        <a class="case" href="https://t.me/BRT_FF/21" target="_blank" rel="noopener">
+          <i>Читать в канале<svg class="ic"><use href="#i-arrow"/></svg></i></a>
+        <a class="case rv" href="https://t.me/BRT_FF/21" target="_blank" rel="noopener">
+          <svg class="ic big"><use href="#i-truck"/></svg>
           <b>Крупногабаритный груз</b>
           <span>Забирали партию унитазов из транспортной компании, а там в тот же день приехала точно такая же партия для другого получателя.</span>
-          <i>Читать в канале</i></a>
+          <i>Читать в канале<svg class="ic"><use href="#i-arrow"/></svg></i></a>
       </div>
     </section>
 
     <!-- фото -->
     <section id="photo">
-      <h2>Наш склад</h2>
+      <div class="head rv"><h2>Наш склад</h2><p class="sub">Нажмите на фото, чтобы посмотреть крупно</p></div>
       <div class="gal">
-        <figure><img src="img/priemka.jpg" alt="Приёмка партии" loading="lazy"><figcaption>Приёмка: больше 200 коробок постоянного клиента</figcaption></figure>
-        <figure><img src="img/podgotovleno.jpg" alt="Подготовлено к отгрузке" loading="lazy"><figcaption>Подготовлено к отгрузке</figcaption></figure>
-        <figure><img src="img/zagruzheno.jpg" alt="Загружено" loading="lazy"><figcaption>Загружено и едет на склад</figcaption></figure>
-        <figure><img src="img/partiya.jpg" alt="Новая партия" loading="lazy"><figcaption>Новая партия на приёмке</figcaption></figure>
-        <figure><img src="img/gruz.jpg" alt="Партия одежды" loading="lazy"><figcaption>Партия одежды для клиента</figcaption></figure>
-        <figure><img src="img/kgt.jpg" alt="Крупногабаритный товар" loading="lazy"><figcaption>Крупногабаритный и хрупкий товар</figcaption></figure>
+        <figure class="rv"><img src="img/priemka.jpg" alt="Приёмка партии" loading="lazy"><figcaption>Приёмка: больше 200 коробок постоянного клиента</figcaption></figure>
+        <figure class="rv"><img src="img/podgotovleno.jpg" alt="Подготовлено к отгрузке" loading="lazy"><figcaption>Подготовлено к отгрузке</figcaption></figure>
+        <figure class="rv"><img src="img/zagruzheno.jpg" alt="Загружено" loading="lazy"><figcaption>Загружено и едет на склад</figcaption></figure>
+        <figure class="rv"><img src="img/partiya.jpg" alt="Новая партия" loading="lazy"><figcaption>Новая партия на приёмке</figcaption></figure>
+        <figure class="rv"><img src="img/gruz.jpg" alt="Партия одежды" loading="lazy"><figcaption>Партия одежды для клиента</figcaption></figure>
+        <figure class="rv"><img src="img/kgt.jpg" alt="Крупногабаритный товар" loading="lazy"><figcaption>Крупногабаритный и хрупкий товар</figcaption></figure>
       </div>
-      <a class="btn o more" href="https://t.me/BRT_FF" target="_blank" rel="noopener">Видео со склада в канале</a>
-    </section>
-
-    <!-- как работаем -->
-    <section id="how">
-      <h2>Как работаем</h2>
-      <div class="tbl steps">
-        <div class="row one"><div>Пишете в Telegram, что за товар и сколько</div></div>
-        <div class="row one"><div>Присылаем прайс и считаем стоимость под ваш товар</div></div>
-        <div class="row one"><div>Забираем товар с карго, рынка или вашего склада</div></div>
-        <div class="row one"><div>Принимаем, маркируем, упаковываем и везём на склад маркетплейса</div></div>
-      </div>
+      <a class="btn o more" href="https://t.me/BRT_FF" target="_blank" rel="noopener"><svg class="ic"><use href="#i-send"/></svg>Видео со склада в канале</a>
     </section>
 
     <!-- заявка на расчёт -->
     <section id="quote" class="quote">
-      <h2>Получить расчёт</h2>
-      <p class="sub">Ответьте на несколько вопросов – заявка уйдёт к нам в Telegram, мы пришлём прайс и посчитаем стоимость под ваш товар.</p>
-      <div class="tbl">
-        <div class="q">
-          <div class="ql">Что за товар?</div>
-          <div class="opts">
-            <label><input type="radio" name="goods" value="одежда"><span>Одежда</span></label>
-            <label><input type="radio" name="goods" value="мелкие товары"><span>Мелкие товары</span></label>
-            <label><input type="radio" name="goods" value="автотовары"><span>Автотовары</span></label>
-            <label><input type="radio" name="goods" value="чай и фасовка"><span>Чай и фасовка</span></label>
-            <label><input type="radio" name="goods" value="электроника"><span>Электроника</span></label>
-            <label><input type="radio" name="goods" value="крупногабаритный"><span>Крупногабаритный</span></label>
-            <label><input type="radio" name="goods" value="хрупкий"><span>Хрупкий</span></label>
-            <label><input type="radio" name="goods" value="другое"><span>Другое</span></label>
+      <div class="head rv"><h2>Получить расчёт</h2><p class="sub">Ответьте на несколько вопросов – заявка уйдёт к нам в Telegram, мы пришлём прайс и посчитаем стоимость под ваш товар.</p></div>
+      <div class="quote-grid">
+        <div class="tbl rv">
+          <div class="q">
+            <div class="ql"><span class="qn">1</span>Что за товар?</div>
+            <div class="opts">
+              <label><input type="radio" name="goods" value="одежда"><span>Одежда</span></label>
+              <label><input type="radio" name="goods" value="мелкие товары"><span>Мелкие товары</span></label>
+              <label><input type="radio" name="goods" value="автотовары"><span>Автотовары</span></label>
+              <label><input type="radio" name="goods" value="чай и фасовка"><span>Чай и фасовка</span></label>
+              <label><input type="radio" name="goods" value="электроника"><span>Электроника</span></label>
+              <label><input type="radio" name="goods" value="крупногабаритный"><span>Крупногабаритный</span></label>
+              <label><input type="radio" name="goods" value="хрупкий"><span>Хрупкий</span></label>
+              <label><input type="radio" name="goods" value="другое"><span>Другое</span></label>
+            </div>
+          </div>
+          <div class="q">
+            <div class="ql"><span class="qn">2</span>Сколько единиц в партии?</div>
+            <div class="opts">
+              <label><input type="radio" name="qty" value="до 500"><span>до 500</span></label>
+              <label><input type="radio" name="qty" value="500–2 000"><span>500–2 000</span></label>
+              <label><input type="radio" name="qty" value="2 000–10 000"><span>2 000–10 000</span></label>
+              <label><input type="radio" name="qty" value="больше 10 000"><span>больше 10 000</span></label>
+            </div>
+          </div>
+          <div class="q">
+            <div class="ql"><span class="qn">3</span>Откуда забрать?</div>
+            <div class="opts">
+              <label><input type="radio" name="from" value="от карго"><span>От карго</span></label>
+              <label><input type="radio" name="from" value="с рынка (Садовод, Южные ворота, ТЯК)"><span>С рынка</span></label>
+              <label><input type="radio" name="from" value="из транспортной компании"><span>Из транспортной</span></label>
+              <label><input type="radio" name="from" value="с ПВЗ"><span>С ПВЗ</span></label>
+              <label><input type="radio" name="from" value="привезу сам"><span>Привезу сам</span></label>
+            </div>
+          </div>
+          <div class="q">
+            <div class="ql"><span class="qn">4</span>Что нужно сделать?</div>
+            <div class="opts">
+              <label><input type="checkbox" name="work" value="проверка на брак"><span>Проверка на брак</span></label>
+              <label><input type="checkbox" name="work" value="маркировка штрихкодом"><span>Штрихкод</span></label>
+              <label><input type="checkbox" name="work" value="«Честный знак»"><span>«Честный знак»</span></label>
+              <label><input type="checkbox" name="work" value="упаковка"><span>Упаковка</span></label>
+              <label><input type="checkbox" name="work" value="комплектация наборов"><span>Наборы</span></label>
+              <label><input type="checkbox" name="work" value="хранение"><span>Хранение</span></label>
+              <label><input type="checkbox" name="work" value="создание поставки"><span>Создать поставку</span></label>
+            </div>
+          </div>
+          <div class="q">
+            <div class="ql"><span class="qn">5</span>Куда отгрузить?</div>
+            <div class="opts">
+              <label><input type="checkbox" name="to" value="Wildberries"><span>Wildberries</span></label>
+              <label><input type="checkbox" name="to" value="Ozon"><span>Ozon</span></label>
+              <label><input type="checkbox" name="to" value="Яндекс Маркет"><span>Яндекс Маркет</span></label>
+            </div>
+          </div>
+          <div class="q">
+            <div class="ql"><span class="qn">6</span>Когда?</div>
+            <div class="opts">
+              <label><input type="radio" name="when" value="срочно, за 24 часа"><span>Срочно</span></label>
+              <label><input type="radio" name="when" value="в ближайшие дни"><span>В ближайшие дни</span></label>
+              <label><input type="radio" name="when" value="пока присматриваюсь"><span>Присматриваюсь</span></label>
+            </div>
           </div>
         </div>
-        <div class="q">
-          <div class="ql">Сколько единиц в партии?</div>
-          <div class="opts">
-            <label><input type="radio" name="qty" value="до 500"><span>до 500</span></label>
-            <label><input type="radio" name="qty" value="500–2 000"><span>500–2 000</span></label>
-            <label><input type="radio" name="qty" value="2 000–10 000"><span>2 000–10 000</span></label>
-            <label><input type="radio" name="qty" value="больше 10 000"><span>больше 10 000</span></label>
-          </div>
+        <div class="res rv">
+          <div class="res-h"><span>Ваша заявка</span><span class="prog"><i id="progBar"></i></span><span id="progTxt">0 из 6</span></div>
+          <pre id="preview"></pre>
+          <a class="btn y wide" id="sendQuote" href="https://t.me/BRTfulfilment" target="_blank" rel="noopener"><svg class="ic"><use href="#i-send"/></svg>Получить расчёт в Telegram</a>
+          <div class="copied" id="copied"></div>
         </div>
-        <div class="q">
-          <div class="ql">Откуда забрать?</div>
-          <div class="opts">
-            <label><input type="radio" name="from" value="от карго"><span>От карго</span></label>
-            <label><input type="radio" name="from" value="с рынка (Садовод, Южные ворота, ТЯК)"><span>С рынка</span></label>
-            <label><input type="radio" name="from" value="из транспортной компании"><span>Из транспортной</span></label>
-            <label><input type="radio" name="from" value="с ПВЗ"><span>С ПВЗ</span></label>
-            <label><input type="radio" name="from" value="привезу сам"><span>Привезу сам</span></label>
-          </div>
-        </div>
-        <div class="q">
-          <div class="ql">Что нужно сделать?</div>
-          <div class="opts">
-            <label><input type="checkbox" name="work" value="проверка на брак"><span>Проверка на брак</span></label>
-            <label><input type="checkbox" name="work" value="маркировка штрихкодом"><span>Штрихкод</span></label>
-            <label><input type="checkbox" name="work" value="«Честный знак»"><span>«Честный знак»</span></label>
-            <label><input type="checkbox" name="work" value="упаковка"><span>Упаковка</span></label>
-            <label><input type="checkbox" name="work" value="комплектация наборов"><span>Наборы</span></label>
-            <label><input type="checkbox" name="work" value="хранение"><span>Хранение</span></label>
-            <label><input type="checkbox" name="work" value="создание поставки"><span>Создать поставку</span></label>
-          </div>
-        </div>
-        <div class="q">
-          <div class="ql">Куда отгрузить?</div>
-          <div class="opts">
-            <label><input type="checkbox" name="to" value="Wildberries"><span>Wildberries</span></label>
-            <label><input type="checkbox" name="to" value="Ozon"><span>Ozon</span></label>
-            <label><input type="checkbox" name="to" value="Яндекс Маркет"><span>Яндекс Маркет</span></label>
-          </div>
-        </div>
-        <div class="q">
-          <div class="ql">Когда?</div>
-          <div class="opts">
-            <label><input type="radio" name="when" value="срочно, за 24 часа"><span>Срочно</span></label>
-            <label><input type="radio" name="when" value="в ближайшие дни"><span>В ближайшие дни</span></label>
-            <label><input type="radio" name="when" value="пока присматриваюсь"><span>Присматриваюсь</span></label>
-          </div>
-        </div>
-      </div>
-      <div class="res">
-        <div class="lbl">Ваша заявка</div>
-        <pre id="preview"></pre>
-        <a class="btn y" id="sendQuote" href="https://t.me/BRTfulfilment" target="_blank" rel="noopener">Получить расчёт в Telegram</a>
-        <div class="copied" id="copied"></div>
       </div>
     </section>
 
     <!-- партнёрам -->
-    <section id="partners">
-      <h2>Партнёрам</h2>
-      <div class="tbl">
-        <div class="th">Карго, менеджерам кабинетов и всем, кто работает с селлерами</div>
-        <div class="row one"><div>Рекомендуйте нас своим клиентам – платим <b class="acc">5% от оплат</b> каждого приведённого клиента первые 6 месяцев</div></div>
-        <div class="row one"><div>Выплаты раз в месяц</div></div>
-        <div class="row note"><div><a class="lnk" href="https://t.me/BRTfulfilment?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%A5%D0%BE%D1%87%D1%83%20%D1%81%D1%82%D0%B0%D1%82%D1%8C%20%D0%BF%D0%B0%D1%80%D1%82%D0%BD%D1%91%D1%80%D0%BE%D0%BC%20Black%20Room." target="_blank" rel="noopener">Обсудить партнёрство в Telegram</a></div></div>
+    <section id="partners" class="split">
+      <div class="head rv"><h2>Партнёрам</h2><p class="sub">Карго, менеджерам кабинетов и всем, кто работает с селлерами</p></div>
+      <div class="partner rv">
+        <div class="pct"><b>5%</b><span>от оплат приведённого клиента</span></div>
+        <ul>
+          <li><svg class="ic"><use href="#i-check"/></svg>Рекомендуете нас своим клиентам</li>
+          <li><svg class="ic"><use href="#i-check"/></svg>Платим 5% от оплат каждого приведённого клиента первые 6 месяцев</li>
+          <li><svg class="ic"><use href="#i-check"/></svg>Выплаты раз в месяц</li>
+        </ul>
+        <a class="btn y" href="https://t.me/BRTfulfilment?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%A5%D0%BE%D1%87%D1%83%20%D1%81%D1%82%D0%B0%D1%82%D1%8C%20%D0%BF%D0%B0%D1%80%D1%82%D0%BD%D1%91%D1%80%D0%BE%D0%BC%20Black%20Room." target="_blank" rel="noopener"><svg class="ic"><use href="#i-send"/></svg>Обсудить партнёрство</a>
       </div>
     </section>
 
     <!-- вопросы -->
     <section id="faq">
-      <h2>Частые вопросы</h2>
-      <details class="tbl"><summary class="th">Почему на сайте нет цен?</summary>
-        <div class="row one"><div>Стоимость зависит от товара: размера, упаковки, маркировки и объёма. Напишите, что за товар и сколько, – пришлём прайс и посчитаем под вашу партию.</div></div></details>
-      <details class="tbl"><summary class="th">Работаете с «Честным знаком»?</summary>
-        <div class="row one"><div>Да, наносим коды «Честного знака» и штрихкоды маркетплейсов.</div></div></details>
-      <details class="tbl"><summary class="th">Какой товар берёте?</summary>
-        <div class="row one"><div>Любой: мелочь, одежду, россыпь и фасовку, крупногабаритный и хрупкий.</div></div></details>
-      <details class="tbl"><summary class="th">Заберёте товар сами?</summary>
-        <div class="row one"><div>Да: с Южных ворот, Садовода, ТЯК Москва, от карго, из транспортных компаний и с ПВЗ.</div></div></details>
-      <details class="tbl"><summary class="th">Можно быстрее?</summary>
-        <div class="row one"><div>Да, срочный заказ обработаем вне очереди за 24 часа.</div></div></details>
-      <details class="tbl"><summary class="th">Где склад?</summary>
-        <div class="row one"><div>Московская область, д. Пуршево, Новослободская, 66 – восток Подмосковья.</div></div></details>
+      <div class="head rv"><h2>Частые вопросы</h2></div>
+      <div class="faq-grid">
+        <details class="tbl rv"><summary class="th">Почему на сайте нет цен?</summary>
+          <div class="row one"><div>Стоимость зависит от товара: размера, упаковки, маркировки и объёма. Напишите, что за товар и сколько, – пришлём прайс и посчитаем под вашу партию.</div></div></details>
+        <details class="tbl rv"><summary class="th">Работаете с «Честным знаком»?</summary>
+          <div class="row one"><div>Да, наносим коды «Честного знака» и штрихкоды маркетплейсов.</div></div></details>
+        <details class="tbl rv"><summary class="th">Какой товар берёте?</summary>
+          <div class="row one"><div>Любой: мелочь, одежду, россыпь и фасовку, крупногабаритный и хрупкий.</div></div></details>
+        <details class="tbl rv"><summary class="th">Заберёте товар сами?</summary>
+          <div class="row one"><div>Да: с Южных ворот, Садовода, ТЯК Москва, от карго, из транспортных компаний и с ПВЗ.</div></div></details>
+        <details class="tbl rv"><summary class="th">Можно быстрее?</summary>
+          <div class="row one"><div>Да, срочный заказ обработаем вне очереди за 24 часа.</div></div></details>
+        <details class="tbl rv"><summary class="th">Где склад?</summary>
+          <div class="row one"><div>Московская область, д. Пуршево, Новослободская, 66 – восток Подмосковья.</div></div></details>
+      </div>
     </section>
 
     <!-- контакты -->
     <section id="contacts" class="contacts">
-      <h2>Контакты</h2>
-      <div class="tbl">
-        <div class="row"><div class="k">Telegram</div><div class="v"><a href="https://t.me/BRTfulfilment" target="_blank" rel="noopener">@BRTfulfilment</a></div></div>
-        <div class="row"><div class="k">Канал</div><div class="v"><a href="https://t.me/BRT_FF" target="_blank" rel="noopener">t.me/BRT_FF</a></div></div>
-        <div class="row"><div class="k">Телефон</div><div class="v"><a href="tel:+79096630201">+7 (909) 663-02-01</a></div></div>
-        <div class="row"><div class="k">Часы</div><div class="v">10:00–19:00</div></div>
-        <div class="row"><div class="k">Склад</div><div class="v"><a href="https://yandex.ru/maps/?text=%D0%9F%D1%83%D1%80%D1%88%D0%B5%D0%B2%D0%BE%2C%20%D0%9D%D0%BE%D0%B2%D0%BE%D1%81%D0%BB%D0%BE%D0%B1%D0%BE%D0%B4%D1%81%D0%BA%D0%B0%D1%8F%2C%2066" target="_blank" rel="noopener">Московская область, д. Пуршево, Новослободская, 66</a></div></div>
+      <div class="head rv"><h2>Контакты</h2></div>
+      <div class="contact-grid">
+        <div class="tbl rv">
+          <div class="row"><div class="k">Telegram</div><div class="v"><a href="https://t.me/BRTfulfilment" target="_blank" rel="noopener">@BRTfulfilment</a></div></div>
+          <div class="row"><div class="k">Канал</div><div class="v"><a href="https://t.me/BRT_FF" target="_blank" rel="noopener">t.me/BRT_FF</a></div></div>
+          <div class="row"><div class="k">Телефон</div><div class="v"><a href="tel:+79096630201">+7 (909) 663-02-01</a></div></div>
+          <div class="row"><div class="k">Часы</div><div class="v">10:00–19:00</div></div>
+          <div class="row"><div class="k">Склад</div><div class="v"><a href="https://yandex.ru/maps/?text=%D0%9F%D1%83%D1%80%D1%88%D0%B5%D0%B2%D0%BE%2C%20%D0%9D%D0%BE%D0%B2%D0%BE%D1%81%D0%BB%D0%BE%D0%B1%D0%BE%D0%B4%D1%81%D0%BA%D0%B0%D1%8F%2C%2066" target="_blank" rel="noopener">Московская область, д. Пуршево, Новослободская, 66</a></div></div>
+        </div>
+        <div class="cta rv">
+          <b>Опишите товар – посчитаем</b>
+          <span>Пришлём прайс и расчёт под вашу партию в Telegram.</span>
+          <div class="btns">
+            <a class="btn y" href="#quote">Получить расчёт</a>
+            <a class="btn o" href="tel:+79096630201"><svg class="ic"><use href="#i-phone"/></svg>Позвонить</a>
+          </div>
+        </div>
       </div>
     </section>
 
-    <footer>Black Room fulfillment</footer>
-  </div>
+    <footer>Black Room fulfillment · Пуршево</footer>
+  </main>
 
   <nav class="bar">
     <a class="btn y" href="#quote">Расчёт</a>
     <a class="btn o" href="https://t.me/BRTfulfilment" target="_blank" rel="noopener">Telegram</a>
     <a class="btn o" href="tel:+79096630201">Звонок</a>
   </nav>
+
+  <div class="lightbox" id="lb" hidden><button class="lb-x" aria-label="Закрыть">×</button><button class="lb-p" aria-label="Назад">‹</button><figure><img alt=""><figcaption></figcaption></figure><button class="lb-n" aria-label="Вперёд">›</button></div>
 </div>
 <script src="app.js"></script>
 </body>
