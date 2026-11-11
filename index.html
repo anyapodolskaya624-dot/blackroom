@@ -20,7 +20,7 @@
 <link rel="icon" type="image/png" href="img/favicon.png">
 <link rel="preload" href="fonts/unbounded-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/montserrat-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="style.css?v=14">
+<link rel="stylesheet" href="style.css?v=15">
 <script>document.documentElement.classList.add("js")</script>
 </head>
 <body>
@@ -170,32 +170,44 @@
     <!-- куда возим: схема -->
     <section id="where" class="split wide">
       <div class="map-wrap rv">
-        <svg class="map" viewBox="0 0 640 450" role="img" aria-label="Схема: от склада в Пуршево к складам Wildberries и Ozon">
+        <svg class="map" viewBox="0 0 640 450" role="img" aria-label="Схема: от склада в Пуршево к складам и сортировочным центрам Wildberries и Ozon">
           <circle class="msk" cx="270" cy="205" r="82"/>
-          <text class="msk-t" x="270" y="114" text-anchor="middle">Москва</text>
+          <text class="msk-t" x="200" y="128" text-anchor="end">Москва</text>
           <g class="routes">
-            <path class="rt wb" data-n="koledino" d="M440 190 Q330 260 245 330"/>
-            <path class="rt wb" data-n="podolsk" d="M440 190 Q320 280 200 352"/>
-            <path class="rt wb" data-n="obuhovo" d="M440 190 Q480 140 522 112"/>
-            <path class="rt wb" data-n="elektrostal" d="M440 190 Q500 180 565 188"/>
-            <path class="rt wb" data-n="tula" d="M440 190 Q330 320 236 418"/>
-            <path class="rt oz" data-n="zamosk" d="M440 190 Q360 200 282 214"/>
-            <path class="rt oz" data-n="chermyan" d="M440 190 Q360 150 268 148"/>
-            <path class="rt oz" data-n="domod" d="M440 190 Q380 270 322 338"/>
-            <path class="rt oz" data-n="sofino" d="M440 190 Q440 260 418 320"/>
-            <path class="rt oz" data-n="pushkino" d="M440 190 Q410 130 362 86"/>
+            <path class="rt wb" data-n="obuhovo" d="M440 190 Q462 150 502 128"/>
+            <path class="rt wb" data-n="noginsk-wb" d="M440 190 Q492 108 590 112"/>
+            <path class="rt oz" data-n="noginsk-oz" d="M440 190 Q548 170 590 112"/>
+            <path class="rt wb" data-n="elektrostal" d="M440 190 Q520 176 594 192"/>
+            <path class="rt wb" data-n="belaya" d="M440 190 Q420 240 376 262"/>
+            <path class="rt wb" data-n="sofino-wb" d="M440 190 Q478 262 452 332"/>
+            <path class="rt oz" data-n="sofino-oz" d="M440 190 Q420 280 452 332"/>
+            <path class="rt wb" data-n="shcherbinka" d="M440 190 Q340 250 258 318"/>
+            <path class="rt wb" data-n="podolsk" d="M440 190 Q330 270 232 356"/>
+            <path class="rt wb" data-n="tula" d="M440 190 Q390 330 270 432"/>
+            <path class="rt oz" data-n="volgograd" d="M440 190 Q380 196 318 236"/>
+            <path class="rt oz" data-n="domod" d="M440 190 Q400 280 334 356"/>
+            <path class="rt oz" data-n="grivno" d="M440 190 Q320 300 200 394"/>
+            <path class="rt oz" data-n="pushkino" d="M440 190 Q412 124 362 84"/>
+            <path class="rt oz" data-n="khorugvino" d="M440 190 Q300 40 140 64"/>
+            <path class="rt oz" data-n="zamosk" d="M440 190 Q350 214 258 206"/>
+            <path class="rt oz" data-n="chermyan" d="M440 190 Q360 150 272 148"/>
           </g>
           <g class="nodes">
-            <g class="nd wb" data-n="koledino"><circle cx="245" cy="330" r="7"/><text x="232" y="334" text-anchor="end">Коледино</text></g>
-            <g class="nd wb" data-n="podolsk"><circle cx="200" cy="352" r="7"/><text x="187" y="356" text-anchor="end">Подольск</text></g>
-            <g class="nd wb" data-n="obuhovo"><circle cx="522" cy="112" r="7"/><text x="535" y="116">Обухово</text></g>
-            <g class="nd wb" data-n="elektrostal"><circle cx="565" cy="188" r="7"/><text x="565" y="170" text-anchor="middle">Электросталь</text></g>
-            <g class="nd wb" data-n="tula"><circle cx="236" cy="418" r="7"/><text x="250" y="422">Тула</text></g>
-            <g class="nd oz" data-n="zamosk"><circle cx="282" cy="214" r="7"/><text x="270" y="240" text-anchor="middle">Замоскворечье</text></g>
-            <g class="nd oz" data-n="chermyan"><circle cx="268" cy="148" r="7"/><text x="268" y="136" text-anchor="middle">Чермянская</text></g>
-            <g class="nd oz" data-n="domod"><circle cx="322" cy="338" r="7"/><text x="336" y="342">Домодедово</text></g>
-            <g class="nd oz" data-n="sofino"><circle cx="418" cy="320" r="7"/><text x="432" y="324">Софьино</text></g>
-            <g class="nd oz" data-n="pushkino"><circle cx="362" cy="86" r="7"/><text x="362" y="70" text-anchor="middle">Пушкино</text></g>
+            <g class="nd wb" data-n="obuhovo"><circle cx="502" cy="128" r="7"/><text x="502" y="112" text-anchor="middle">Обухово</text></g>
+            <g class="nd both" data-n="noginsk-wb noginsk-oz"><circle cx="590" cy="112" r="7"/><text x="590" y="96" text-anchor="middle">Ногинск</text></g>
+            <g class="nd wb" data-n="elektrostal"><circle cx="594" cy="192" r="7"/><text x="594" y="174" text-anchor="middle">Электросталь</text></g>
+            <g class="nd wb" data-n="belaya"><circle cx="376" cy="262" r="7"/><text x="363" y="270" text-anchor="end">Белая Дача</text></g>
+            <g class="nd both" data-n="sofino-wb sofino-oz"><circle cx="452" cy="332" r="7"/><text x="466" y="336">Софьино</text></g>
+            <g class="nd wb" data-n="shcherbinka"><circle cx="258" cy="318" r="7"/><text x="245" y="322" text-anchor="end">Щербинка</text></g>
+            <g class="nd wb" data-n="podolsk"><circle cx="232" cy="356" r="7"/><text x="219" y="360" text-anchor="end">Подольск</text></g>
+            <g class="nd wb" data-n="tula"><circle cx="270" cy="432" r="7"/><text x="284" y="436">Тула</text></g>
+            <g class="nd oz" data-n="volgograd"><circle cx="318" cy="236" r="7"/><text x="305" y="240" text-anchor="end">Волгоградский</text></g>
+            <g class="nd oz" data-n="domod"><circle cx="334" cy="356" r="7"/><text x="348" y="360">Домодедово</text></g>
+            <g class="nd oz" data-n="grivno"><circle cx="200" cy="394" r="7"/><text x="187" y="398" text-anchor="end">Гривно</text></g>
+            <g class="nd oz" data-n="pushkino"><circle cx="362" cy="84" r="7"/><text x="362" y="68" text-anchor="middle">Пушкино 1</text></g>
+            <g class="nd oz" data-n="khorugvino"><circle cx="140" cy="64" r="7"/><text x="140" y="48" text-anchor="middle">Хоругвино</text></g>
+            <g class="nd oz" data-n="zamosk"><circle cx="258" cy="206" r="7"/><text x="245" y="210" text-anchor="end">Замоскворечье</text></g>
+            <g class="nd oz" data-n="chermyan"><circle cx="272" cy="148" r="7"/><text x="272" y="136" text-anchor="middle">Чермянская</text></g>
           </g>
           <g class="hub">
             <circle class="pulse" cx="440" cy="190" r="16"/>
@@ -204,20 +216,20 @@
             <text x="474" y="254" class="hub-s">Пуршево</text>
           </g>
         </svg>
-        <div class="legend"><span><i class="lg wb"></i>Wildberries</span><span><i class="lg oz"></i>Ozon</span><span class="muted">Схема, не в масштабе</span></div>
+        <div class="legend"><span><i class="lg wb"></i>Wildberries</span><span><i class="lg oz"></i>Ozon</span><span><i class="lg both"></i>оба</span><span class="muted">Схема, не в масштабе</span></div>
       </div>
       <div class="where-text">
         <div class="head rv"><h2>Куда возим</h2><p class="sub">Наведите на склад – подсветим маршрут</p></div>
         <div class="tbl rv">
-          <div class="th">Склады Wildberries</div>
+          <div class="th">Склады и СЦ Wildberries</div>
           <div class="row one"><div class="chips">
-            <span data-n="koledino">Коледино</span><span data-n="podolsk">Подольск</span><span data-n="obuhovo">Обухово</span><span data-n="elektrostal">Электросталь</span><span data-n="tula">Тула</span><span>Санкт-Петербург</span><span>Казань</span><span>Краснодар</span><span>Екатеринбург</span>
+            <span data-n="obuhovo">СЦ Обухово</span><span data-n="noginsk-wb">СЦ Ногинск</span><span data-n="podolsk">СЦ Подольск</span><span data-n="sofino-wb">СЦ Софьино</span><span data-n="shcherbinka">СЦ Щербинка</span><span data-n="belaya">СЦ Белая Дача</span><span data-n="tula">СЦ Тула</span><span data-n="elektrostal">Электросталь</span>
           </div></div>
         </div>
         <div class="tbl rv">
           <div class="th">Склады Ozon</div>
           <div class="row one"><div class="chips">
-            <span data-n="zamosk">Замоскворечье</span><span data-n="chermyan">Чермянская</span><span data-n="domod">Домодедово</span><span data-n="sofino">Софьино</span><span data-n="pushkino">Пушкино</span>
+            <span data-n="noginsk-oz">Ногинск</span><span data-n="volgograd">Волгоградский</span><span data-n="sofino-oz">Софьино</span><span data-n="domod">Домодедово</span><span data-n="grivno">Гривно</span><span data-n="pushkino">Пушкино 1</span><span data-n="khorugvino">Хоругвино</span><span data-n="zamosk">Замоскворечье</span><span data-n="chermyan">Чермянская</span>
           </div></div>
         </div>
       </div>
@@ -433,6 +445,6 @@
 
   <div class="lightbox" id="lb" hidden><button class="lb-x" aria-label="Закрыть">×</button><button class="lb-p" aria-label="Назад">‹</button><figure><img alt=""><figcaption></figcaption></figure><button class="lb-n" aria-label="Вперёд">›</button></div>
 </div>
-<script src="app.js?v=13"></script>
+<script src="app.js?v=15"></script>
 </body>
 </html>

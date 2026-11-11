@@ -136,6 +136,7 @@ section{position:relative;padding:36px 0}
 .map .nd circle{stroke-width:2.5;transition:r .2s}
 .map .nd.wb circle{fill:var(--acc);stroke:var(--acc)}
 .map .nd.oz circle{fill:var(--bg);stroke:#e5e5e5}
+.map .nd.both circle{fill:var(--acc);stroke:#e5e5e5}
 .map .nd text{fill:#d9d9d9;font:500 13px "Montserrat",sans-serif;transition:fill .2s}
 .map .hub .core{fill:var(--acc)}
 .map .hub .pulse{fill:none;stroke:var(--acc);stroke-width:2;transform-origin:440px 190px;animation:pulse 2.2s ease-out infinite}
@@ -149,6 +150,7 @@ section{position:relative;padding:36px 0}
 .legend .lg{display:inline-block;width:11px;height:11px;border-radius:50%;margin-right:6px;vertical-align:-1px}
 .legend .lg.wb{background:var(--acc)}
 .legend .lg.oz{border:2px solid #e5e5e5}
+.legend .lg.both{background:var(--acc);box-shadow:0 0 0 2px #e5e5e5}
 .legend .muted{color:#7d7d7d}
 .chips{display:flex !important;flex-wrap:wrap;gap:8px;justify-content:center;padding:14px !important}
 .chips span{border:1.5px solid var(--line);border-radius:30px;padding:7px 13px;font-size:14px;transition:all .15s}

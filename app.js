@@ -80,8 +80,10 @@ if ("IntersectionObserver" in window && !reduce) {
 }
 
 /* ---------- схема складов: наведение на склад подсвечивает его маршрут ---------- */
-function hl(n, on) {
-  document.querySelectorAll('[data-n="' + n + '"]').forEach(e => e.classList.toggle("hl", on));
+/* у общей точки WB и Ozon (Ногинск, Софьино) два имени через пробел – подсвечиваем оба маршрута */
+function hl(names, on) {
+  names.split(" ").forEach(n =>
+    document.querySelectorAll('[data-n~="' + n + '"]').forEach(e => e.classList.toggle("hl", on)));
 }
 document.querySelectorAll('.chips span[data-n], .map .nd').forEach(el => {
   el.addEventListener("mouseenter", () => hl(el.dataset.n, true));
