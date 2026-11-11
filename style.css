@@ -388,8 +388,12 @@ footer{color:var(--muted);font-size:13px;text-align:center;padding:26px 0 10px}
 @media (min-width:1024px) and (max-width:1199px){.menu a[href="#faq"],.menu a[href="#partners"]{display:none}}
 
 /* ===== услуги раскрываются по нажатию ===== */
-button.card{font:inherit;color:inherit;text-align:left;cursor:pointer;width:100%;display:block}
-.more-l{display:inline-flex;align-items:center;gap:6px;margin-top:10px;font-style:normal;color:var(--acc);font-weight:600;font-size:14px}
+/* карточка-кнопка: содержимое по верху, «Подробнее» отдельной строкой внизу */
+button.card{font:inherit;color:inherit;text-align:left;cursor:pointer;width:100%;display:flex;flex-direction:column;align-items:flex-start;justify-content:flex-start}
+button.card > b,button.card > span{display:block}
+button.card:focus{outline:none}
+button.card:focus-visible{outline:2px solid var(--acc);outline-offset:3px}
+.more-l{display:flex;align-items:center;gap:6px;margin-top:auto;padding-top:12px;font-style:normal;color:var(--acc);font-weight:600;font-size:14px}
 .more-l .ic{width:15px;height:15px;transition:transform .2s}
 @media (hover:hover){button.card:hover .more-l .ic{transform:translateX(4px)}}
 .sheet{position:fixed;inset:0;z-index:60;background:rgba(10,10,10,.72);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);display:flex;align-items:flex-end;justify-content:center}
