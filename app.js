@@ -207,3 +207,63 @@ onScroll();
   if (mq.addEventListener) mq.addEventListener("change", fit);
   fit();
 })();
+
+/* ---------- услуги: по нажатию открывается карточка с подробностями (без цен) ---------- */
+(function () {
+  const SVC = {
+    pickup: { t: "Забор товара", ic: "i-truck", p: "Сами забираем товар и везём на склад – вам не нужно искать машину и грузчиков.",
+      li: ["С рынков: Южные ворота, ТЯК Москва / Люблино, Садовод", "От карго и из транспортных компаний", "С ПВЗ – небольшие партии до 5 единиц", "Разгрузка коробов и мешков, снятие обрешётки"] },
+    accept: { t: "Приёмка", ic: "i-box", p: "Принимаем партию и пересчитываем товар, чтобы вы знали, сколько единиц приехало на самом деле.",
+      li: ["Пересчёт товара", "Сортировка по цветам, размерам и артикулам", "Разгрузка по коробам и мешкам"] },
+    check: { t: "Проверка на брак", ic: "i-eye", p: "Проверяем товар до отправки на маркетплейс, чтобы брак не ушёл покупателю.",
+      li: ["Визуальная проверка", "Проверка техники", "Проверка одежды"] },
+    mark: { t: "Маркировка", ic: "i-barcode", p: "Наносим этикетки, без которых маркетплейс не примет товар.",
+      li: ["Штрихкоды маркетплейсов", "Коды «Честный знак»", "Бирки – пистолетом или на верёвку"] },
+    pack: { t: "Упаковка", ic: "i-layers", p: "Упаковываем по требованиям Wildberries и Ozon. Материал – наш или ваш.",
+      li: ["Пакеты: зип-пакет с бегунком, курьерский, из пузырчатой плёнки – разных размеров", "Самосборные и 4-клапанные короба", "Пузырчатая плёнка и ПЭ-рукав для хрупкого", "Вложение визитки или инструкции", "Комплектовка наборов"] },
+    store: { t: "Хранение", ic: "i-store", p: "Храним товар на новом складе в Пуршево между поставками.",
+      li: ["Хранение коробов и паллет", "Первая неделя хранения бесплатно", "Раз в несколько месяцев – полная ревизия склада и сверка остатков"] },
+    supply: { t: "Поставки", ic: "i-pallet", p: "Готовим поставку и довозим её до склада маркетплейса.",
+      li: ["Создание поставки и работа в личном кабинете", "Укладка в транспортировочные короба, гофрокороба 60×40×40", "Паллетирование: сборка и паллета", "Доставка на склады Wildberries и Ozon", "Отправка товара курьером, например на фотосессию"] },
+    urgent: { t: "Срочно", ic: "i-clock", p: "Когда поставка нужна как можно скорее.",
+      li: ["Обработка срочного заказа вне очереди в течение 24 часов", "Срочную обработку включаем по вашей просьбе"] }
+  };
+  const keys = Object.keys(SVC);
+  const sheet = $("sheet");
+  if (!sheet) return;
+  let cur = 0, back = null;
+  function show(i) {
+    cur = (i + keys.length) % keys.length;
+    const d = SVC[keys[cur]];
+    $("sheetIc").setAttribute("href", "#" + d.ic);
+    $("sheetTitle").textContent = d.t;
+    $("sheetText").textContent = d.p;
+    $("sheetList").innerHTML = d.li.map(x => '<li><svg class="ic"><use href="#i-check"/></svg><span></span></li>').join("");
+    [...$("sheetList").querySelectorAll("span")].forEach((sp, k) => sp.textContent = d.li[k]);
+    $("sheetPos").textContent = (cur + 1) + " из " + keys.length;
+  }
+  function open(i, from) {
+    back = from || null;
+    show(i);
+    sheet.hidden = false;
+    document.documentElement.style.overflow = "hidden";
+    sheet.querySelector(".sheet-x").focus({ preventScroll: true });
+  }
+  function close() {
+    sheet.hidden = true;
+    document.documentElement.style.overflow = "";
+    if (back) back.focus({ preventScroll: true });
+  }
+  document.querySelectorAll("button.svc").forEach(b => b.addEventListener("click", () => open(keys.indexOf(b.dataset.svc), b)));
+  sheet.querySelector(".sheet-x").addEventListener("click", close);
+  sheet.querySelector(".sheet-p").addEventListener("click", () => show(cur - 1));
+  sheet.querySelector(".sheet-n").addEventListener("click", () => show(cur + 1));
+  sheet.addEventListener("click", e => { if (e.target === sheet) close(); });
+  $("sheetQuote").addEventListener("click", () => close());
+  document.addEventListener("keydown", e => {
+    if (sheet.hidden) return;
+    if (e.key === "Escape") close();
+    if (e.key === "ArrowRight") show(cur + 1);
+    if (e.key === "ArrowLeft") show(cur - 1);
+  });
+})();

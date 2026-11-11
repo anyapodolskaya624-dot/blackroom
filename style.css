@@ -386,3 +386,29 @@ footer{color:var(--muted);font-size:13px;text-align:center;padding:26px 0 10px}
 }
 
 @media (min-width:1024px) and (max-width:1199px){.menu a[href="#faq"],.menu a[href="#partners"]{display:none}}
+
+/* ===== услуги раскрываются по нажатию ===== */
+button.card{font:inherit;color:inherit;text-align:left;cursor:pointer;width:100%;display:block}
+.more-l{display:inline-flex;align-items:center;gap:6px;margin-top:10px;font-style:normal;color:var(--acc);font-weight:600;font-size:14px}
+.more-l .ic{width:15px;height:15px;transition:transform .2s}
+@media (hover:hover){button.card:hover .more-l .ic{transform:translateX(4px)}}
+.sheet{position:fixed;inset:0;z-index:60;background:rgba(10,10,10,.72);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);display:flex;align-items:flex-end;justify-content:center}
+.sheet[hidden]{display:none}
+.sheet-box{position:relative;width:100%;max-height:88vh;overflow:auto;background:var(--head);border:var(--bw) solid var(--acc);border-bottom:0;border-radius:24px 24px 0 0;
+  padding:24px 18px calc(20px + env(safe-area-inset-bottom));animation:sheetup .3s ease}
+@keyframes sheetup{from{transform:translateY(40px);opacity:0}to{transform:none;opacity:1}}
+.sheet-x{position:absolute;top:12px;right:12px;width:42px;height:42px;border-radius:50%;border:var(--bw) solid var(--border);background:var(--bg);color:var(--acc);font-size:24px;line-height:1;cursor:pointer}
+.sheet-h{display:flex;align-items:center;gap:14px;margin:0 50px 14px 0}
+.sheet-h h3{margin:0;font:600 22px/1.15 "Unbounded",sans-serif;color:#fff}
+#sheetText{color:var(--soft);margin:0 0 14px}
+#sheetList{list-style:none;margin:0 0 20px;padding:0;display:grid;gap:9px}
+#sheetList li{display:flex;gap:10px;align-items:flex-start;padding:10px 12px;border:1px solid #3a3a3a;border-radius:14px;background:var(--bg)}
+#sheetList li .ic{color:var(--acc);width:18px;height:18px;margin-top:2px}
+.sheet-nav{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:18px;padding-top:14px;border-top:1px solid #3a3a3a;font-size:14px;color:var(--muted)}
+.sheet-nav button{display:inline-flex;align-items:center;gap:6px;background:none;border:0;color:var(--acc);font:600 14px "Montserrat",sans-serif;cursor:pointer;padding:6px 0}
+.sheet-nav .sheet-p .ic{transform:rotate(180deg)}
+.sheet-nav .ic{width:16px;height:16px}
+@media (min-width:760px){
+  .sheet{align-items:center;padding:24px}
+  .sheet-box{width:min(600px,100%);border:var(--bw) solid var(--acc);border-radius:24px;padding:30px 30px 24px}
+}

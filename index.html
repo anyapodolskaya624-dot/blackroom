@@ -12,7 +12,7 @@
 <link rel="icon" type="image/png" href="img/favicon.png">
 <link rel="preload" href="fonts/unbounded-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/montserrat-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="style.css?v=12">
+<link rel="stylesheet" href="style.css?v=13">
 <script>document.documentElement.classList.add("js")</script>
 </head>
 <body>
@@ -134,16 +134,16 @@
 
     <!-- услуги -->
     <section id="services">
-      <div class="head rv"><h2>Что делаем</h2></div>
+      <div class="head rv"><h2>Что делаем</h2><p class="sub">Нажмите на услугу, чтобы узнать подробнее</p></div>
       <div class="grid svc-grid">
-        <div class="card rv"><svg class="ic big"><use href="#i-truck"/></svg><b>Забор товара</b><span>С Южных ворот, Садовода, ТЯК Москва, от карго, из транспортных компаний и ПВЗ</span></div>
-        <div class="card rv"><svg class="ic big"><use href="#i-box"/></svg><b>Приёмка</b><span>Пересчёт, сортировка по цветам, размерам и артикулам, разгрузка коробов и мешков</span></div>
-        <div class="card rv"><svg class="ic big"><use href="#i-eye"/></svg><b>Проверка на брак</b><span>Визуальная, проверка техники и одежды</span></div>
-        <div class="card rv"><svg class="ic big"><use href="#i-barcode"/></svg><b>Маркировка</b><span>Штрихкоды маркетплейсов и «Честный знак»</span></div>
-        <div class="card rv"><svg class="ic big"><use href="#i-layers"/></svg><b>Упаковка</b><span>Пакеты, короба, пузырчатая плёнка, ПЭ-рукав, бирки, вкладыши, наборы</span></div>
-        <div class="card rv"><svg class="ic big"><use href="#i-store"/></svg><b>Хранение</b><span>Первая неделя хранения бесплатно</span></div>
-        <div class="card rv"><svg class="ic big"><use href="#i-pallet"/></svg><b>Поставки</b><span>Создаём поставку в личном кабинете, собираем короба и паллеты</span></div>
-        <div class="card rv"><svg class="ic big"><use href="#i-clock"/></svg><b>Срочно</b><span>Срочный заказ обработаем вне очереди за 24 часа</span></div>
+        <button class="card svc rv" type="button" data-svc="pickup"><svg class="ic big"><use href="#i-truck"/></svg><b>Забор товара</b><span>С Южных ворот, Садовода, ТЯК Москва, от карго, из транспортных компаний и ПВЗ</span><i class="more-l">Подробнее<svg class="ic"><use href="#i-arrow"/></svg></i></button>
+        <button class="card svc rv" type="button" data-svc="accept"><svg class="ic big"><use href="#i-box"/></svg><b>Приёмка</b><span>Пересчёт, сортировка по цветам, размерам и артикулам, разгрузка коробов и мешков</span><i class="more-l">Подробнее<svg class="ic"><use href="#i-arrow"/></svg></i></button>
+        <button class="card svc rv" type="button" data-svc="check"><svg class="ic big"><use href="#i-eye"/></svg><b>Проверка на брак</b><span>Визуальная, проверка техники и одежды</span><i class="more-l">Подробнее<svg class="ic"><use href="#i-arrow"/></svg></i></button>
+        <button class="card svc rv" type="button" data-svc="mark"><svg class="ic big"><use href="#i-barcode"/></svg><b>Маркировка</b><span>Штрихкоды маркетплейсов и «Честный знак»</span><i class="more-l">Подробнее<svg class="ic"><use href="#i-arrow"/></svg></i></button>
+        <button class="card svc rv" type="button" data-svc="pack"><svg class="ic big"><use href="#i-layers"/></svg><b>Упаковка</b><span>Пакеты, короба, пузырчатая плёнка, ПЭ-рукав, бирки, вкладыши, наборы</span><i class="more-l">Подробнее<svg class="ic"><use href="#i-arrow"/></svg></i></button>
+        <button class="card svc rv" type="button" data-svc="store"><svg class="ic big"><use href="#i-store"/></svg><b>Хранение</b><span>Первая неделя хранения бесплатно</span><i class="more-l">Подробнее<svg class="ic"><use href="#i-arrow"/></svg></i></button>
+        <button class="card svc rv" type="button" data-svc="supply"><svg class="ic big"><use href="#i-pallet"/></svg><b>Поставки</b><span>Создаём поставку в личном кабинете, собираем короба и паллеты</span><i class="more-l">Подробнее<svg class="ic"><use href="#i-arrow"/></svg></i></button>
+        <button class="card svc rv" type="button" data-svc="urgent"><svg class="ic big"><use href="#i-clock"/></svg><b>Срочно</b><span>Срочный заказ обработаем вне очереди за 24 часа</span><i class="more-l">Подробнее<svg class="ic"><use href="#i-arrow"/></svg></i></button>
       </div>
     </section>
 
@@ -412,8 +412,19 @@
     <a class="bar-ic" href="tel:+79096630201" aria-label="Позвонить"><svg class="ic"><use href="#i-phone"/></svg></a>
   </nav>
 
+  <div class="sheet" id="sheet" hidden>
+    <div class="sheet-box" role="dialog" aria-modal="true" aria-labelledby="sheetTitle">
+      <button class="sheet-x" type="button" aria-label="Закрыть">×</button>
+      <div class="sheet-h"><span class="ci"><svg class="ic"><use id="sheetIc" href="#i-box"/></svg></span><h3 id="sheetTitle"></h3></div>
+      <p id="sheetText"></p>
+      <ul id="sheetList"></ul>
+      <div class="btns"><a class="btn y" href="#quote" id="sheetQuote">Получить расчёт</a><a class="btn o" href="https://t.me/BRTfulfilment" target="_blank" rel="noopener"><svg class="ic"><use href="#i-send"/></svg>Написать в Telegram</a></div>
+      <div class="sheet-nav"><button class="sheet-p" type="button"><svg class="ic"><use href="#i-arrow"/></svg>Предыдущая</button><span id="sheetPos"></span><button class="sheet-n" type="button">Следующая<svg class="ic"><use href="#i-arrow"/></svg></button></div>
+    </div>
+  </div>
+
   <div class="lightbox" id="lb" hidden><button class="lb-x" aria-label="Закрыть">×</button><button class="lb-p" aria-label="Назад">‹</button><figure><img alt=""><figcaption></figcaption></figure><button class="lb-n" aria-label="Вперёд">›</button></div>
 </div>
-<script src="app.js?v=12"></script>
+<script src="app.js?v=13"></script>
 </body>
 </html>
