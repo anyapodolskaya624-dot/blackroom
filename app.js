@@ -2,6 +2,30 @@
 const $ = id => document.getElementById(id);
 const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
+/* ---------- откуда клиент: строчка в сообщение для Telegram ----------
+   Реклама (Директ, Ozon) дописывает в ссылку на сайт, откуда пришёл человек (utm_source),
+   по какому запросу (utm_term) и с какого объявления (utm_content). Сайт ничего не сохраняет
+   и никуда не отправляет: строчка только добавляется в уже набранный текст сообщения в Telegram.
+   Без этих меток в ссылке всё работает как раньше. */
+const SRC_NAMES = { yandex: "Яндекс", direct: "Яндекс", ozon: "Ozon", avito: "Авито", wb: "Wildberries" };
+const FROM = (() => {
+  const q = new URLSearchParams(location.search);
+  const clean = v => (v || "").replace(/[\u0000-\u001f]/g, " ").replace(/\s+/g, " ").trim().slice(0, 80);
+  const src = clean(q.get("utm_source")).toLowerCase();
+  if (!src) return "";
+  const term = clean(q.get("utm_term"));
+  /* «---autotargeting» – так Директ подставляет показы без ключевой фразы */
+  const termPart = !term ? "" : term.startsWith("---") ? "автотаргетинг" : "запрос «" + term + "»";
+  const ad = clean(q.get("utm_content"));
+  return "Откуда: " + [SRC_NAMES[src] || src, termPart, ad && "объявление " + ad].filter(Boolean).join(", ");
+})();
+/* остальные кнопки Telegram: к их тексту (или к простому приветствию) добавляется та же строчка */
+if (FROM) document.querySelectorAll('a[href^="https://t.me/BRTfulfilment"]:not(#sendQuote)').forEach(a => {
+  /* пробелы кодируем как %20, а не «+», как и в остальных ссылках сайта */
+  const u = new URL(a.href);
+  a.href = u.origin + u.pathname + "?text=" + encodeURIComponent((u.searchParams.get("text") || "Здравствуйте!") + "\n" + FROM);
+});
+
 /* ---------- заявка на расчёт: ответы складываются в сообщение для Telegram ---------- */
 const QS = ["goods", "qty", "from", "work", "to", "when"];
 const pick = name => [...document.querySelectorAll('input[name="' + name + '"]:checked')].map(i => i.value);
@@ -15,7 +39,7 @@ function build() {
     ["Отгрузка", pick("to")],
     ["Когда", pick("when")]
   ].filter(([, v]) => v.length);
-  text = "Здравствуйте! Хочу получить расчёт." + (rows.length ? "\n" + rows.map(([k, v]) => k + ": " + v.join(", ")).join("\n") : "");
+  text = "Здравствуйте! Хочу получить расчёт." + (rows.length ? "\n" + rows.map(([k, v]) => k + ": " + v.join(", ")).join("\n") : "") + (FROM ? "\n" + FROM : "");
   $("preview").textContent = text;
   $("sendQuote").href = "https://t.me/BRTfulfilment?text=" + encodeURIComponent(text);
   /* сколько вопросов уже отвечено – полоска и отметки у номеров */
