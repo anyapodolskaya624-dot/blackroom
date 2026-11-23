@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Black Room - свои заходы</title>
+<link rel="icon" type="image/png" href="../img/favicon.png">
+<style>
+  html, body { margin: 0; background: #151515; color: #ececec; font: 17px/1.5 system-ui, -apple-system, "Segoe UI", sans-serif; }
+  main { max-width: 520px; margin: 0 auto; padding: 18vh 24px 40px; }
+  h1 { font-size: 26px; line-height: 1.25; margin: 0 0 14px; }
+  p { margin: 0 0 14px; color: #c9c9c9; }
+  a { display: inline-block; margin-top: 10px; padding: 12px 20px; border-radius: 12px; background: #f6c84f; color: #151515; text-decoration: none; font-weight: 600; }
+</style>
+</head>
+<body>
+<main>
+  <h1 id="t">Готово: ваши заходы больше не считаются</h1>
+  <p id="p">Отметка стоит только на этом устройстве и в этом браузере. Откройте этот адрес так же на других своих телефонах и компьютерах. Если почистить данные браузера, адрес нужно открыть заново.</p>
+  <a href="/">На сайт</a>
+</main>
+<script>
+  try {
+    localStorage.setItem("br_svoi", "1");
+    if (localStorage.getItem("br_svoi") !== "1") throw 0;
+  } catch (e) {
+    document.getElementById("t").textContent = "Не получилось поставить отметку";
+    document.getElementById("p").textContent = "Похоже, браузер не сохраняет данные сайтов (например, включён режим инкогнито). Откройте адрес в обычном окне.";
+  }
+</script>
+</body>
+</html>
