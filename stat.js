@@ -83,9 +83,12 @@
     if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4) on = els.length - 1;
     return on;
   }
+  /* своя отметка «вкладка на экране»: к моменту события ухода браузер уже считает вкладку скрытой,
+     и без неё терялись секунды на последнем блоке */
+  let vis = !document.hidden;
   function account() {
     const now = Date.now();
-    if (!document.hidden && curSec >= 0) secMs[curSec] += now - tick;
+    if (vis && curSec >= 0) secMs[curSec] += now - tick;
     tick = now;
   }
   function onScroll() {
@@ -140,6 +143,9 @@
     if (sent && Date.now() - lastSend < 2000) return;
     lastSend = Date.now();
     account();
+    /* где человек сейчас - на случай, если прокрутка прошла без событий (переход по кнопке-якорю) */
+    const cs = whichSec();
+    if (cs > maxSec) maxSec = cs;
     if (visSince) { visibleMs += Date.now() - visSince; visSince = 0; }
     const sec = Math.round(visibleMs / 1000);
     const blocks = SECS.map(([, name], i) => [name, Math.round(secMs[i] / 1000)]).filter(([, s]) => s > 0)
@@ -161,8 +167,12 @@
   }
 
   document.addEventListener("visibilitychange", () => {
-    if (document.hidden) { send(); }
-    else { visSince = Date.now(); tick = Date.now(); }
+    if (document.hidden) {
+      account();
+      if (visSince) { visibleMs += Date.now() - visSince; visSince = 0; }
+      vis = false;
+      send();
+    } else { vis = true; visSince = Date.now(); tick = Date.now(); }
   });
   /* на всякий случай для старых браузеров, если вкладку закрыли без события выше */
   window.addEventListener("pagehide", () => { if (!document.hidden) send(); });
