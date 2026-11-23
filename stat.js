@@ -134,7 +134,11 @@
   let sent = 0;
   const clean = s => String(s).replace(/[|\r\n]+/g, " ").trim();
 
+  let lastSend = 0;
   function send() {
+    /* при уходе со страницы браузер шлёт два события подряд - вторая строчка не нужна */
+    if (sent && Date.now() - lastSend < 2000) return;
+    lastSend = Date.now();
     account();
     if (visSince) { visibleMs += Date.now() - visSince; visSince = 0; }
     const sec = Math.round(visibleMs / 1000);
